@@ -1,0 +1,1 @@
+module.exports = require("C:\\Users\\syw51\\Documents\\GitHub\\my-blog\\src\\utils\\typography")
