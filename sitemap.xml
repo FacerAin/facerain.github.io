@@ -3,8 +3,6 @@
 <url> <loc>https://facerain.github.io/development/quick_start/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://facerain.github.io/development/hello/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://facerain.github.io/essay/test1/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://facerain.github.io/development/second/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://facerain.github.io/development/third/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://facerain.github.io/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://facerain.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
