@@ -58,6 +58,7 @@
     "eslint-plugin-react": "^7.11.1",
     "fs-extra": "^7.0.1",
     "gatsby-post-gen": "^1.0.0",
+    "gh-pages": "^3.1.0",
     "gray-matter": "^4.0.2",
     "inquirer": "^6.2.2",
     "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
@@ -84,6 +85,7 @@
     "start": "npm run develop",
     "build": "gatsby build",
     "lh": "lighthousebot",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   }
 }
