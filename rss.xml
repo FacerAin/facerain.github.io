@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[FacerAin]]></title><description><![CDATA[Blog posted about ...]]></description><link>https://facerain.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 17 Sep 2020 18:39:51 GMT</lastBuildDate><item><title><![CDATA[200916_til]]></title><description><![CDATA[Question Keyword로 Transfer Learning, Elmo, BLUE를 공부해 보았다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[FacerAin]]></title><description><![CDATA[Blog posted about ...]]></description><link>https://facerain.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 21 Sep 2020 13:13:30 GMT</lastBuildDate><item><title><![CDATA[200921_til]]></title><description><![CDATA[하루 25분 실행하기: 하루를 대하는 14년차 개발자의 자세 글을 읽고 느낀 점을 작성한 글입니다. 이 글을 읽고 나도 이런 핑계 저런 핑계를 대면서 하루를 너무 의미 없이 흘러보낸게 아닌가 반성을 하게 되었다. 이런 TIL…]]></description><link>https://facerain.github.io/TIL/200921_til/</link><guid isPermaLink="false">https://facerain.github.io/TIL/200921_til/</guid><pubDate>Mon, 21 Sep 2020 21:10:09 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.shiren.dev/2020-09-07/&quot;&gt;하루 25분 실행하기: 하루를 대하는 14년차 개발자의 자세&lt;/a&gt; 글을 읽고 느낀 점을 작성한 글입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이 글을 읽고 나도 이런 핑계 저런 핑계를 대면서 하루를 너무 의미 없이 흘러보낸게 아닌가 반성을 하게 되었다. 이런 TIL을 쓰는 이유도 &lt;strong&gt;어제와 다른 오늘&lt;/strong&gt;을 만들기 위함인데, 너무나도 게을리 한 것 같다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;하루 25분&lt;/strong&gt; 참으로 보잘 것 없는 시간 같지만, 막상 내기도 어려운 시간이었다. 이런 TIL 작성하는데 10분도 걸리지 않는데 자주 포스트를 안하는 걸 보면… ㅎㅎ&lt;/p&gt;
+&lt;p&gt;나의 투자하고 싶은 활동은 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;알고리즘 공부&lt;/li&gt;
+&lt;li&gt;딥러닝(자연어처리) 논문 공부&lt;/li&gt;
+&lt;li&gt;개인 프로젝트 개발&lt;/li&gt;
+&lt;li&gt;그림 그리기&lt;/li&gt;
+&lt;li&gt;독서&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;지금은 2번과 5번만 살짝 손대고 있는 실정이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;하루에 25분만 투자해보자!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;25분은 자기 전 유튜브 덜 보고, 침대에서 10분 일찍 일어나는 사소한 노력이면 충분히 낼 수 있는 시간이다. 시간이 없어서라는 변명도 통하지 않는다.
+하루에 25분씩 5일이면 125분, 약 2시간이나 되는 시간을 자기계발에 쓸 수 있다!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;월요일: 논문&lt;/li&gt;
+&lt;li&gt;화요일: 프로젝트&lt;/li&gt;
+&lt;li&gt;수요일: 알고리즘&lt;/li&gt;
+&lt;li&gt;목요일: 프로젝트&lt;/li&gt;
+&lt;li&gt;금요일: TIL 정리, 독서&lt;/li&gt;
+&lt;li&gt;토요일: 그림 그리기&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;한번 꾸준하게 계획한 목표를 지켜보자.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[200916_til]]></title><description><![CDATA[Question Keyword로 Transfer Learning, Elmo, BLUE를 공부해 보았다.
 링크 Tranfer Learning이 무척 흥미로운 개념이다. Fine-Tuning 과정을 한번 직접 실습해 보고 싶다.]]></description><link>https://facerain.github.io/TIL/200916_til/</link><guid isPermaLink="false">https://facerain.github.io/TIL/200916_til/</guid><pubDate>Fri, 18 Sep 2020 03:09:39 GMT</pubDate><content:encoded>&lt;p&gt;Question Keyword로 Transfer Learning, Elmo, BLUE를 공부해 보았다.
 &lt;a href=&quot;https://github.com/FacerAin/Deep-Learning-Paper-Study/blob/master/keyword/20-09-2.md&quot;&gt;링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Tranfer Learning이 무척 흥미로운 개념이다. Fine-Tuning 과정을 한번 직접 실습해 보고 싶다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[200917_til]]></title><description><![CDATA[링크 1년동안 진행했던 알고리즘 스터디를 드디어 정리 완료했다. 부족한 점도 많고 아직 추가할 내용이 많지만, 이렇게 모아두고 보니 뿌듯하다. 이 자료를 통해 많은 사람들이 알고리즘을 쉽고 편하게 다가갔음 한다.]]></description><link>https://facerain.github.io/TIL/200917_til/</link><guid isPermaLink="false">https://facerain.github.io/TIL/200917_til/</guid><pubDate>Fri, 18 Sep 2020 03:09:03 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://github.com/FacerAin/2020-Algorithm-Study&quot;&gt;링크&lt;/a&gt;&lt;br&gt;
