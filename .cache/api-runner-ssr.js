@@ -1,26 +1,26 @@
 var plugins = [{
-      plugin: require('C:/Users/syw51/Documents/GitHub/my-blog/node_modules/gatsby-remark-autolink-headers/gatsby-ssr'),
+      plugin: require('C:/Users/syw51/OneDrive/문서/GitHub/facerain.github.io/node_modules/gatsby-remark-autolink-headers/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('C:/Users/syw51/Documents/GitHub/my-blog/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
+      plugin: require('C:/Users/syw51/OneDrive/문서/GitHub/facerain.github.io/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
       options: {"plugins":[],"trackingId":"UA-171429988-1"},
     },{
-      plugin: require('C:/Users/syw51/Documents/GitHub/my-blog/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      plugin: require('C:/Users/syw51/OneDrive/문서/GitHub/facerain.github.io/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
       options: {"plugins":[],"name":"FacerAin","short_name":"FacerAin","start_url":"/","background_color":"#ffffff","theme_color":"#1c7ed6","display":"minimal-ui","icon":"content/assets/felog.png","cache_busting_mode":"query","include_favicon":true,"legacy":true,"theme_color_in_head":true,"cacheDigest":"08d1167632bb288cc6b3d20157af049c"},
     },{
-      plugin: require('C:/Users/syw51/Documents/GitHub/my-blog/node_modules/gatsby-plugin-typography/gatsby-ssr'),
+      plugin: require('C:/Users/syw51/OneDrive/문서/GitHub/facerain.github.io/node_modules/gatsby-plugin-typography/gatsby-ssr'),
       options: {"plugins":[],"pathToConfigModule":"src/utils/typography"},
     },{
-      plugin: require('C:/Users/syw51/Documents/GitHub/my-blog/node_modules/gatsby-plugin-feed/gatsby-ssr'),
+      plugin: require('C:/Users/syw51/OneDrive/문서/GitHub/facerain.github.io/node_modules/gatsby-plugin-feed/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('C:/Users/syw51/Documents/GitHub/my-blog/node_modules/gatsby-plugin-offline/gatsby-ssr'),
+      plugin: require('C:/Users/syw51/OneDrive/문서/GitHub/facerain.github.io/node_modules/gatsby-plugin-offline/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('C:/Users/syw51/Documents/GitHub/my-blog/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      plugin: require('C:/Users/syw51/OneDrive/문서/GitHub/facerain.github.io/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('C:/Users/syw51/Documents/GitHub/my-blog/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
+      plugin: require('C:/Users/syw51/OneDrive/문서/GitHub/facerain.github.io/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
       options: {"plugins":[]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:

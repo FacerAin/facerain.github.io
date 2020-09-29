@@ -1,1 +1,1 @@
-module.exports = require("C:\\Users\\syw51\\Documents\\GitHub\\my-blog\\src\\utils\\typography")
+module.exports = require("C:\\Users\\syw51\\OneDrive\\문서\\GitHub\\facerain.github.io\\src\\utils\\typography")
