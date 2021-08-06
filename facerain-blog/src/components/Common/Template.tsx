@@ -2,6 +2,7 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/Common/GlobalStyle';
 import Footer from 'components/Common/Footer';
+import SideMenu from 'components/Common/SideMenu';
 import { Helmet } from 'react-helmet';
 
 interface TemplateProps {
@@ -30,6 +31,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
     <Container>
       <Helmet>
         <title>{title}</title>
+		  
 
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,6 +48,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
       </Helmet>
 
       <GlobalStyle />
+		  <SideMenu/>
       {children}
       <Footer />
     </Container>
