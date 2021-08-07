@@ -5,51 +5,47 @@ import CategoryList from 'components/Main/CategoryList';
 import Introduction from 'components/Main/Introduction';
 import PostList, { PostType } from 'components/Main/PostList';
 import { ProfileImageProps } from 'components/Main/ProfileImage';
+import Landing from 'components/Main/Landing';
+import RecentPostList from 'components/Main/RecentPostList';
 import { graphql } from 'gatsby';
 import queryString, { ParsedQuery } from 'query-string';
 
 interface IndexPageProps {
-  location: {
-    search: string;
-  };
-  data: {
-    site: {
-      siteMetadata: {
-        title: string;
-        description: string;
-        siteUrl: string;
-      };
-    };
-    allMarkdownRemark: {
-      edges: PostType[];
-    };
-    file: {
-      publicURL: string;
-      childImageSharp: {
-        fluid: ProfileImageProps['profileImage'];
-      };
-    };
-  };
+	location: {
+		search: string;
+	};
+	data: {
+		site: {
+			siteMetadata: {
+				title: string;
+				description: string;
+				siteUrl: string;
+			};
+		};
+		allMarkdownRemark: {
+			edges: PostType[];
+		};
+		file: {
+			publicURL: string;
+			childImageSharp: {
+				fluid: ProfileImageProps['profileImage'];
+			};
+		};
+	};
 }
 
-const CATEGORY_LIST = {
-	All: 5,
-	Web: 3,
-	Mobile: 2,
-};
-
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
-  location: { search },
-  data: {
-    site: {
-      siteMetadata: { title, description, siteUrl },
-    },
-    allMarkdownRemark: { edges },
-    file: {
-      publicURL,
-      childImageSharp: { fluid },
-    },
-  },
+	location: { search },
+	data: {
+		site: {
+			siteMetadata: { title, description, siteUrl },
+		},
+		allMarkdownRemark: { edges },
+		file: {
+			publicURL,
+			childImageSharp: { fluid },
+		},
+	},
 }) {
 	const parsed: ParsedQuery<string> = queryString.parse(search);
 	const selectedCategory: string =
@@ -78,21 +74,13 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
 			),
 		[]
 	);
-  return (
-    <Template
-      title={title}
-      description={description}
-      url={siteUrl}
-      image={publicURL}
-    >
-      <Introduction profileImage={fluid} />
-      <CategoryList
-        selectedCategory={selectedCategory}
-        categoryList={categoryList}
-      />
-      <PostList selectedCategory={selectedCategory} posts={edges} />
-    </Template>
-  );
+	return (
+		<Template title={title} description={description} url={siteUrl} image={publicURL}>
+			<Landing />
+			{/*<Introduction profileImage={fluid}>*/}
+			<RecentPostList selectedCategory={selectedCategory} posts={edges} />
+		</Template>
+	);
 };
 
 export default IndexPage;
@@ -146,8 +134,3 @@ export const queryPostList = graphql`
     }
   }
 `;
-
-
-
-
-

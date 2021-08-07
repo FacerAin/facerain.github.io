@@ -15,6 +15,7 @@
     "gatsby": "^3.10.2",
     "gatsby-image": "^3.10.0",
     "gatsby-plugin-canonical-urls": "^3.10.0",
+    "gatsby-plugin-disqus": "^1.2.2",
     "gatsby-plugin-emotion": "^6.10.0",
     "gatsby-plugin-image": "^1.10.1",
     "gatsby-plugin-offline": "^4.10.0",

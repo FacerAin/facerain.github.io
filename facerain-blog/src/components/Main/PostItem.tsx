@@ -4,18 +4,17 @@ import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 
 interface PostItemProps {
-  title: string;
-  date: string;
-  categories: string[];
-  summary: string;
-  thumbnail: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
-  link: string;
+	title: string;
+	date: string;
+	categories: string[];
+	summary: string;
+	thumbnail: {
+		childImageSharp: {
+			fluid: FluidObject;
+		};
+	};
+	link: string;
 }
-
 
 const PostItemWrapper = styled(Link)`
 	display: flex;
@@ -31,11 +30,10 @@ const PostItemWrapper = styled(Link)`
 `;
 
 const ThumbnailImage = styled(Img)`
-  width: 100%;
-  height: 200px;
-  border-radius: 10px 10px 0 0;
+	width: 100%;
+	height: 200px;
+	border-radius: 10px 10px 0 0;
 `;
-
 
 const PostItemContent = styled.div`
 	flex: 1;
@@ -93,34 +91,32 @@ const Summary = styled.div`
 	opacity: 0.8;
 `;
 
-
-
 const PostItem: FunctionComponent<PostItemProps> = function ({
-  title,
-  date,
-  categories,
-  summary,
-  thumbnail: {
-    childImageSharp: { fluid },
-  },
-  link,
+	title,
+	date,
+	categories,
+	summary,
+	thumbnail: {
+		childImageSharp: { fluid },
+	},
+	link,
 }) {
-  return (
-    <PostItemWrapper to={link}>
-      <ThumbnailImage fluid={fluid} alt="Post Item Image" />
+	return (
+		<PostItemWrapper to={link}>
+			<ThumbnailImage fluid={fluid} alt="Post Item Image" />
 
-      <PostItemContent>
-        <Title>{title}</Title>
-        <Date>{date}</Date>
-        <Category>
-          {categories.map(item => (
-            <CategoryItem key={item}>{item}</CategoryItem>
-          ))}
-        </Category>
-        <Summary>{summary}</Summary>
-      </PostItemContent>
-    </PostItemWrapper>
-  );
+			<PostItemContent>
+				<Title>{title}</Title>
+				<Date>{date}</Date>
+				<Category>
+					{categories.map((item) => (
+						<CategoryItem key={item}>{item}</CategoryItem>
+					))}
+				</Category>
+				<Summary>{summary}</Summary>
+			</PostItemContent>
+		</PostItemWrapper>
+	);
 };
 
 export default PostItem;

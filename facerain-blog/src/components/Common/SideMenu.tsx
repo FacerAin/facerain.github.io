@@ -1,6 +1,4 @@
 import React, { useState, FunctionComponent } from 'react';
-import { BsList } from 'react-icons/bs';
-import { IconContext } from 'react-icons';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -8,21 +6,8 @@ type SideMenuWrapperProps = {
 	active: boolean;
 };
 
-const SideMenuButton = styled.div`
-	z-index: 10;
-	top: 30px;
-	left: 30px;
-	width: 30px;
-	height: 30px;
-	position: fixed;
-	place-items: center;
-	display: grid;
-	color: #000000;
-	font-size: 22px;
-`;
-
 const SideMenuWrapper = styled.div<SideMenuWrapperProps>`
-	z-index: 9;
+	z-index: 50;
 	display: flex;
 	flex-direction: column;
 	position: fixed;
@@ -50,19 +35,12 @@ const SideMenuItem = styled(Link)`
 	}
 `;
 
-const SideMenu: FunctionComponent = function () {
-	const [isOpen, setIsOpen] = useState(false);
-
-	const toggleSideMenu = () => {
-		setIsOpen(!isOpen);
-	};
+const SideMenu: FunctionComponent<SideMenuWrapperProps> = function ({active}) {
 
 	return (
 		<>
-			<SideMenuButton onClick={toggleSideMenu}>
-				<BsList size={50} />
-			</SideMenuButton>
-			<SideMenuWrapper active={isOpen}>
+
+			<SideMenuWrapper active={active}>
 				<SideMenuList>
 					<SideMenuItem to="/">Home</SideMenuItem>
 					<SideMenuItem to="about">About</SideMenuItem>

@@ -3,7 +3,7 @@ module.exports = {
 		title: `FacerAin's Dev-Space`,
 		description: `FacerAin의 개발 공간입니다.`,
 		author: `FacerAin`,
-		siteUrl: `https://my-website.com/`,
+		siteUrl: `https://0.0.0.0/`,
 	},
 	plugins: [
 		{
@@ -16,7 +16,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-canonical-urls',
 			options: {
-				siteUrl: 'https://my-website.com/',
+				siteUrl: 'https://0.0.0.0/',
 				stripQueryString: true,
 			},
 		},
@@ -43,6 +43,12 @@ module.exports = {
 			},
 		},
 		`gatsby-transformer-sharp`,
+		{
+			resolve: `gatsby-plugin-disqus`,
+			options: {
+				shortname: `FacerAin`
+			}
+		},
 		`gatsby-plugin-sharp`,
 		{
 			resolve: `gatsby-transformer-remark`,
