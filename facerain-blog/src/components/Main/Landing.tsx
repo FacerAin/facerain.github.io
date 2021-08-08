@@ -14,7 +14,7 @@ const LandingWrapper = styled.div`
 `;
 
 const MainTextArea = styled.div`
-	font-size: 70px;
+font-size: 70px;
 	color: white;
 	margin-top: 40vh;
 	width: 40vw;
@@ -25,10 +25,17 @@ const MainText1 = styled.div`
 	font-size: 100px;
 	padding-left: 10px;
 	margin-bottom: 30px;
+  @media (max-width: 768px) {
+    font-size: 50px;
+  }
 `;
 
 const MainText2 = styled.div`
+	font-size: 70px;
 	padding-left: 10px;
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
 const ScrollDownButton = styled.div`

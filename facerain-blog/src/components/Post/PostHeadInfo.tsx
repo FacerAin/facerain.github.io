@@ -36,11 +36,12 @@ const PrevPageIcon = styled.div`
   font-size: 22px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
+margin-top: 20px;
   @media (max-width: 768px) {
     width: 30px;
     height: 30px;
     font-size: 18px;
+
   }
 `;
 

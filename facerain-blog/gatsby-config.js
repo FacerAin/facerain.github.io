@@ -3,7 +3,7 @@ module.exports = {
 		title: `FacerAin's Dev-Space`,
 		description: `FacerAin의 개발 공간입니다.`,
 		author: `FacerAin`,
-		siteUrl: `https://0.0.0.0/`,
+		siteUrl: `https://facerain.club/`,
 	},
 	plugins: [
 		{
@@ -16,7 +16,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-canonical-urls',
 			options: {
-				siteUrl: 'https://0.0.0.0/',
+				siteUrl: 'https://facerain.club/',
 				stripQueryString: true,
 			},
 		},
