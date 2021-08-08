@@ -6,7 +6,7 @@ import PostList from 'components/Main/PostList';
 import CategoryList from 'components/Main/CategoryList';
 import { graphql } from 'gatsby';
 import Template from 'components/Common/Template';
-import useInfiniteScroll, {useInfiniteScrollType} from 'hooks/useInfiniteScroll';
+import useInfiniteScroll, { useInfiniteScrollType } from 'hooks/useInfiniteScroll';
 import queryString, { ParsedQuery } from 'query-string';
 
 interface PostsPageProps {
@@ -33,13 +33,18 @@ interface PostsPageProps {
 	};
 }
 
-
 const PostsPageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+`;
+
+const HeaderText = styled.div`
+	margin-top: 100px;
+	font-size: 50px;
+	text-align: center;
 `;
 
 const PostsPage: FunctionComponent<PostsPageProps> = function ({
@@ -84,16 +89,17 @@ const PostsPage: FunctionComponent<PostsPageProps> = function ({
 	);
 	return (
 		<Template title={title} description={description} url={siteUrl} image={publicURL}>
-			{/*<Introduction profileImage={fluid}>*/}
-			<CategoryList categoryList={categoryList} selectedCategory={selectedCategory}/>
-			<PostList  selectedCategory={selectedCategory} posts={edges} />
+			<PostsPageWrapper>
+				<HeaderText>Posts</HeaderText>
+				{/*<Introduction profileImage={fluid}>*/}
+				<CategoryList categoryList={categoryList} selectedCategory={selectedCategory} />
+				<PostList selectedCategory={selectedCategory} posts={edges} />
+			</PostsPageWrapper>
 		</Template>
 	);
 };
 
 export default PostsPage;
-
-
 
 export const queryPostsPage = graphql`
   query queryPostsPage {

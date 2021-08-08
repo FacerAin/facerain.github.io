@@ -30,8 +30,9 @@ const SideMenuItem = styled(Link)`
 	border-bottom: 1px solid black;
 	padding: 10px;
 	margin-bottom: 5px;
-	&: {
-		color: red;
+	&:hover {
+		background-color: black;
+		color: white;
 	}
 `;
 
@@ -43,9 +44,9 @@ const SideMenu: FunctionComponent<SideMenuWrapperProps> = function ({active}) {
 			<SideMenuWrapper active={active}>
 				<SideMenuList>
 					<SideMenuItem to="/">Home</SideMenuItem>
-					<SideMenuItem to="about">About</SideMenuItem>
-					<SideMenuItem to="posts">Posts</SideMenuItem>
-					<SideMenuItem to="projects">Projects</SideMenuItem>
+					<SideMenuItem to="/about/">About</SideMenuItem>
+					<SideMenuItem to="/posts/?category=All">Posts</SideMenuItem>
+					<SideMenuItem to="/projects/">Projects</SideMenuItem>
 				</SideMenuList>
 			</SideMenuWrapper>
 		</>

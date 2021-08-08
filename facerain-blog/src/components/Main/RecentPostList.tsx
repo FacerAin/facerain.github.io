@@ -39,6 +39,10 @@ width: 70px;
 height: 40px;
 line-height: 40px;
 text-align: center;
+&:hover{
+background-color: black;
+color: white;
+}
 `
 
 const PostListContainer = styled.div`
@@ -84,7 +88,7 @@ const RecentPostList: FunctionComponent<PostListProps> = function ({ selectedCat
 			))}
 			</PostListContainer>
 			
-			<MoreButton to='/posts'>
+			<MoreButton to='/posts/?category=All'>
 			더보기
 			</MoreButton>
 
