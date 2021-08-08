@@ -13,7 +13,6 @@ const DisqusContent:FunctionComponent<DisqusContentProps> = function({siteUrl, p
     identifier: id,
     title: title,
 	}
-	console.log(disqusConfig);
 	return(
 	<>
 		<Disqus config={disqusConfig}/>
