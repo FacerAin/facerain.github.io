@@ -21,7 +21,7 @@ const useInfiniteScroll = function (
 			),
 		[selectedCategory]
 	);
-	const observer = useRef();
+	let observer = useRef();
 
 	useEffect(() => {
 		observer = new IntersectionObserver((entries, observer) => {
