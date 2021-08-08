@@ -6,7 +6,7 @@ export type useInfiniteScrollType = {
 	postList: PostType[];
 };
 
-const NUMBER_OF_ITEMS_PER_PAGE = 4;
+const NUMBER_OF_ITEMS_PER_PAGE = 10;
 
 const useInfiniteScroll = function (
 	selectedCategory: string,
@@ -14,7 +14,6 @@ const useInfiniteScroll = function (
 ): useInfiniteScrollType {
 	const containerRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
 	const [count, setCount] = useState<number>(1);
-
 	const postListByCategory = useMemo<PostType[]>(
 		() =>
 			posts.filter(({ node: { frontmatter: { categories } } }: PostType) =>
@@ -22,15 +21,16 @@ const useInfiniteScroll = function (
 			),
 		[selectedCategory]
 	);
+	const observer = useRef();
 
-	const observer: IntersectionObserver = new IntersectionObserver((entries, observer) => {
-		if (!entries[0].isIntersecting) return;
+	useEffect(() => {
+		observer = new IntersectionObserver((entries, observer) => {
+			if (!entries[0].isIntersecting) return;
 
-		setCount((value) => value + 1);
-		observer.disconnect();
-	});
-
-	useEffect(() => setCount(1), [selectedCategory]);
+			setCount((value) => value + 1);
+			observer.disconnect();
+		});
+	}, []);
 
 	useEffect(() => {
 		if (

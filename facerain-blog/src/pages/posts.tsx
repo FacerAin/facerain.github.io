@@ -6,7 +6,6 @@ import PostList from 'components/Main/PostList';
 import CategoryList from 'components/Main/CategoryList';
 import { graphql } from 'gatsby';
 import Template from 'components/Common/Template';
-import useInfiniteScroll, { useInfiniteScrollType } from 'hooks/useInfiniteScroll';
 import queryString, { ParsedQuery } from 'query-string';
 
 interface PostsPageProps {
@@ -63,6 +62,7 @@ const PostsPage: FunctionComponent<PostsPageProps> = function ({
 	const parsed: ParsedQuery<string> = queryString.parse(search);
 	const selectedCategory: string =
 		typeof parsed.category !== 'string' || !parsed.category ? 'ALL' : parsed.category;
+	
 	const categoryList = useMemo(
 		() =>
 			edges.reduce(
