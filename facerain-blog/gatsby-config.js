@@ -14,6 +14,14 @@ module.exports = {
 			},
 		},
 		{
+			resolve: `gatsby-plugin-gtag`,
+			options: {
+				trackingId: `G-5Z08N862E7`, // 측정 ID
+				head: false, // head에 tracking script를 넣고 싶다면 true로 변경
+				anonymize: true,
+			},
+		},
+		{
 			resolve: 'gatsby-plugin-canonical-urls',
 			options: {
 				siteUrl: 'https://facerain.club/',
@@ -32,7 +40,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-robots-txt`,
 			options: {
-				policy: [{userAgent: '*', allow: '/'}],
+				policy: [{ userAgent: '*', allow: '/' }],
 			},
 		},
 		{
@@ -46,8 +54,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-disqus`,
 			options: {
-				shortname: `FacerAin`
-			}
+				shortname: `FacerAin`,
+			},
 		},
 		`gatsby-plugin-sharp`,
 		{
