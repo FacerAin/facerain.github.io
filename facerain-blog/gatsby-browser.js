@@ -14,3 +14,5 @@ exports.shouldUpdateScroll = ({
 
   return false
 }
+
+require("prismjs/themes/prism-tomorrow.css")
