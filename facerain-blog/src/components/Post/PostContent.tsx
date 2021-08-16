@@ -84,6 +84,12 @@ const MarkdownRenderer = styled.div`
     text-decoration: underline;
   }
 
+.gatsby-resp-image-figcaption{
+text-align: center;
+color: gray;
+padding-top: 10px;
+}
+
   // Adjust Code Style
   pre[class*='language-'] {
     margin: 30px 0;
