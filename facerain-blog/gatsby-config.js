@@ -6,6 +6,7 @@ module.exports = {
 		siteUrl: `https://facerain.club/`,
 	},
 	plugins: [
+		'gatsby-plugin-sitemap',
 		{
 			resolve: `gatsby-transformer-remark`,
 			options: {
