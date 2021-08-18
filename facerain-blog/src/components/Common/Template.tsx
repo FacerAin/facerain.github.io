@@ -33,6 +33,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
         <title>{title}</title>
 		  
 		<meta name="google-site-verification" content="U5sap4VsSQ8k1jxwnJhhuw49vXMSKUooDWhMWXAFRUY" />
+		 <meta name="naver-site-verification" content="291793568c5c106a55dcc6e1d7407c86cfaf7783" />
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
