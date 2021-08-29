@@ -2,7 +2,7 @@
 date: '2021-08-15'
 title: '사이버 지식 정보방(AKA.사지방)에서 개발하기'
 categories: ['Tip', 'Development']
-summary: '사지방에서 개발하는 방법을 알아보자'
+summary: '사지방에서 개발하는 방법을 알아봅시다.'
 thumbnail: './how-to-roka-development/th.jpg'
 ---
 

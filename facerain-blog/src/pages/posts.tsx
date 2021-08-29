@@ -33,6 +33,7 @@ interface PostsPageProps {
 }
 
 const PostsPageWrapper = styled.div`
+	margin-top: 150px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -41,7 +42,7 @@ const PostsPageWrapper = styled.div`
 `;
 
 const HeaderText = styled.div`
-	margin-top: 100px;
+	margin-top: 30px;
 	font-size: 50px;
 	text-align: center;
 `;
