@@ -1,6 +1,6 @@
 # facerain-blog
 [Link is Here!](https://facerain.club)  
-[![Netlify Status](https://api.netlify.com/api/v1/badges/043c2a7c-5de8-4f83-951b-d8082a521c8e/deploy-status)](https://app.netlify.com/sites/facerain/deploys)
+[![React build](https://github.com/FacerAin/facerain-blog/actions/workflows/main.yml/badge.svg)](https://github.com/FacerAin/facerain-blog/actions/workflows/main.yml)
 
 ## Introduction
 Gatsby를 사용하여 개발한 블로그입니다.
