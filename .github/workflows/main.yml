@@ -1,0 +1,18 @@
+name: React build
+on: 
+  push:                             
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout source code.   
+        uses: actions/checkout@master
+
+      - name: Install Dependencies    # 의존 파일 설치
+        run: yarn install
+
+      - name: Build                   
+        run: yarn build
