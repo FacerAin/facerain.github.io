@@ -6,6 +6,8 @@ on:
 
 jobs:
   build:
+    env:
+      working-directory: ./facerain-blog
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout source code.   
@@ -13,6 +15,8 @@ jobs:
 
       - name: Install Dependencies    # 의존 파일 설치
         run: yarn install
+        working-directory: ${{ env.working-directory }}
 
       - name: Build                   
         run: yarn build
+        working-directory: ${{ env.working-directory }}
