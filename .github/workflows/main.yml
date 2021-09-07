@@ -12,6 +12,17 @@ jobs:
     steps:
       - name: Checkout source code.   
         uses: actions/checkout@master
+        
+      - name: Cache node modules
+        id: node-cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
 
       - name: Install Dependencies    # 의존 파일 설치
         run: yarn install
