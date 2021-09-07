@@ -32,8 +32,6 @@ jobs:
         run: yarn build
         working-directory: ${{ env.working-directory }}
         
-
-            yarn build
   deploy:
     env:
       working-directory: ./facerain-blog
