@@ -21,7 +21,14 @@ jobs:
         run: yarn build
         working-directory: ${{ env.working-directory }}
         
-      - name: executing remote ssh commands using password
+
+            yarn build
+  deploy:
+    env:
+      working-directory: ./facerain-blog
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Deploy Using SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -30,5 +37,7 @@ jobs:
         #  port: ${{ secrets.PORT }} # default : 22
           script: |
             cd ${{ secrets.DEPLOY_PATH }} && git pull
+            cd facerain-blog
             yarn install
             yarn build
+      
