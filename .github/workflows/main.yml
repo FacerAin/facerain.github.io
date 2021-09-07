@@ -20,3 +20,15 @@ jobs:
       - name: Build                   
         run: yarn build
         working-directory: ${{ env.working-directory }}
+        
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+        #  port: ${{ secrets.PORT }} # default : 22
+          script: |
+            cd ${{ secrets.DEPLOY_PATH }} && git pull
+            yarn install
+            yarn build
