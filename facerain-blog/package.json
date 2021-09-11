@@ -13,6 +13,7 @@
     "@react-icons/all-files": "^4.1.0",
     "@types/react-helmet": "^6.1.2",
     "disqus-react": "^1.1.1",
+    "fontsource-noto-sans-kr": "^4.0.0",
     "gatsby": "^3.10.2",
     "gatsby-image": "^3.10.0",
     "gatsby-plugin-canonical-urls": "^3.10.0",

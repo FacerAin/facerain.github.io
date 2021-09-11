@@ -1,4 +1,5 @@
 // in gastby-browser.js
+import "fontsource-noto-sans-kr";
 exports.shouldUpdateScroll = ({
   routerProps: { location },
   getSavedScrollPosition,

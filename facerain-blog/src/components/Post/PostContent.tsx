@@ -7,6 +7,7 @@ interface PostContentProps {
 
 
 const MarkdownRenderer = styled.div`
+  font-family: "Noto Sans KR";
   // Renderer Style
   display: flex;
   flex-direction: column;
