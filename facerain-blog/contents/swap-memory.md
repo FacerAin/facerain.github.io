@@ -91,6 +91,6 @@ Swap에 값이 잘 할당되어 있다면 성공입니다!
 
 
 ## Reference
--[https://aroundck.tistory.com/2659](https://aroundck.tistory.com/2659)  
--[https://sergeswin.com/1034/](https://sergeswin.com/1034/)
+- [https://aroundck.tistory.com/2659](https://aroundck.tistory.com/2659)  
+- [https://sergeswin.com/1034/](https://sergeswin.com/1034/)
 
