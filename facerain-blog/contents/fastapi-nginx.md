@@ -11,7 +11,7 @@ FastAPI가 처음이신 분들은 [Fast API 10분 튜토리얼 #1) Fast API 시�
 
 ## Nginx는 들어봤는데... Gunicorn은 뭐죠?
 개발 환경에서 FastAPI를 구동할 때 주로 **Uvicorn**을 사용했습니다.  
-하지만 **0vicorn은 Single Process로만 동작**하기 때문에 수많은 Request가 발생하는 **Production 환경에서는 한계**가 있습니다.
+하지만 **Uvicorn은 Single Process로만 동작**하기 때문에 수많은 Request가 발생하는 **Production 환경에서는 한계**가 있습니다.
 따라서 **Multi Process를 사용하고 관리할 수 있는 WSGI 서버인 Gunicorn을 이용**하여 서버를 구동합니다.
 > Q. 잠깐, Uvicorn은 ASGI 서버 아닌가요? WSGI 서버인 Gunicorn으로 Production하면 ASGI 서버를 쓴 이유가 없어지지 않나요?  
 > A. Uvicorn에서 Gunicorn worker class를 제공합니다. 따라서 Gunicorn의 장점인 Multi Process 관리와 Uvicorn의 장점인 강력한 성능 이점을 모두 활용하여 ASGI 서버를 구동할 수 있습니다. 
@@ -51,9 +51,9 @@ ps -ef | grep gunicorn
 sudo apt-get install nginx
 ``` 
 다음으로 **Nginx config 파일을 작성**합니다.  
-**/etc/nginx/site-available 경로에 fastapi.conf 파일을 생성**해주세요.
+**/etc/nginx/sites-available 경로에 fastapi.conf 파일을 생성**해주세요.
 ```shell
-sudo nano /etc/nginx/site-available/fastapi.conf
+sudo nano /etc/nginx/sites-available/fastapi.conf
 ```
 fastapi.conf에는 아래와 같은 내용을 입력해주세요.  
 이때 server_name에는 자신의 **서버 주소 혹은 도메인 주소를 입력**해 주시면 됩니다. (Ex. facerain.club)
@@ -73,7 +73,7 @@ sudo ln -s /etc/nginx/sites-available/fastapi.conf /etc/nginx/sites-enable/fasta
 ```
 
 > Q. 왜 sites-available의 fastapi.conf를 sites-enable에 심볼릭 링크를 생성하나요?  
-> A. Nginx에서 sites-available 내의 여러 설정 파일 중에서 실제로 서버로 구동하고 싶은 파일은 sites-enable로 옮겨주여야 합니다. 이때 심볼릭 링크를 사용하여 편하게 설정 파일을 복사해줄 수 있습니다.
+> A. Nginx에서 sites-available 내의 여러 설정 파일 중에서 실제로 서버로 구동하고 싶은 파일은 sites-enable로 옮겨주여야 합니다. 이때 심볼릭 링크를 사용하면 편하게 설정 파일을 복사해서 옮길 수 있습니다.
 
 Nginx를 재시작하기 전에 설정 파일이 제대로 작성되었는지 확인하기 위해 **Nginx 테스트를 해줍니다.**
 ```shell
