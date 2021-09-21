@@ -22,6 +22,15 @@ module.exports = {
               noInlineHighlight: false,
             },
           },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: `anchor-header`,
+              maintainCase: false,
+              removeAccents: true,
+              elements: [`h2`, "h3", `h4`],
+            },
+          },
         ],
       },
     },
