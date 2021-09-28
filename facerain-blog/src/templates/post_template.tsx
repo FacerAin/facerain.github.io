@@ -6,6 +6,7 @@ import PostContent from "components/Post/PostContent"
 import { FluidObject } from "gatsby-image"
 import DisqusContent from "components/Post/DisqusContent"
 import Table from "components/Post/Table"
+import styled from "@emotion/styled"
 interface PostTemplateProps {
   data: {
     site: {
@@ -42,6 +43,11 @@ interface PostTemplateProps {
   }
 }
 
+const PostContainer = styled.div`
+  margin: 0 auto;
+  position: relative;
+`
+
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
     site: {
@@ -77,8 +83,11 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         categories={categories}
         thumbnail={fluid}
       />
-      <Table tableOfContents={tableOfContents} />
-      <PostContent html={html} />
+      <PostContainer>
+        <PostContent html={html} />
+        <Table tableOfContents={tableOfContents} />
+      </PostContainer>
+
       <DisqusContent siteUrl={siteUrl} pathname={href} id={id} title={title} />
     </Template>
   )
