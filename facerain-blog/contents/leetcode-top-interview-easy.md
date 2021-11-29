@@ -1,7 +1,7 @@
 ---
 date: '2021-11-29'
 title: 'LeetCode Top Interview Questions Easy Collection 리뷰'
-categories: ['Tip', 'Development']
+categories: ['Tip', 'Algorithm']
 summary: 'LeetCode Top Interview Questions Easy Collection을 간단하게 리뷰합니다'
 thumbnail: './leetcode-top-interview-easy/th.jpg'
 ---
