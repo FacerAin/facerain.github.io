@@ -60,8 +60,10 @@ triplet의 첫번째 요소를 first, 두번째 요소를 second라고 합시다
 
 1. num이 first보다 작을 때  (num <= first)  
 first 변수의 값을 num 값으로 갱신 (triplet의 첫번째 요소를 갱신)  
+
 2. num이 first보다 크고 second보다 작을 때 (first <= num <= second)  
 second 변수의 값을 num 값으로 갱신 (triplet의 두번째 요소를 갱신)  
+
 3. num이 first와 second보다 클 때 (first <= second <= num)  
 조건을 만족하는 triplet을 만들 수 있다!  (triplet의 세번째 요소까지 완성)  
 
