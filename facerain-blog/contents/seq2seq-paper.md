@@ -11,7 +11,7 @@ Learning Phrase Representation using RNN Encoder-Decoder for Statistical Machine
 
 ## Abstract
 - 연구팀은 **RNN Encoder-Decoder** 모델을 제안합니다. 지금 널리 알려진 Seq2Seq 모델의 토대가 된 모델입니다.
-- 모델은 **입력 문장(source sentence)**이 주어졌을 때 **조건부 확률을 최대화**하는 **출력 문장(target sentence)**을 찾도록 훈련합니다.
+- 모델은 **입력 문장(source sentence)** 이 주어졌을 때 **조건부 확률을 최대화**하는 **출력 문장(target sentence)** 을 찾도록 훈련합니다.
 - 기존 SMT 시스템보다 **성능이 향상**되었으며, 더 나아가 모델이 언어 구문의 **의미적** 그리고 **문법적**인 표현을 배울 수 있습니다.  
 
 ## RNN Encoder-Decoder
@@ -19,15 +19,16 @@ Learning Phrase Representation using RNN Encoder-Decoder for Statistical Machine
 
 ![1](./seq2seq-paper/1.png "RNN Encoder-Decoder 모델")
 
-우선 **Encoder**에서는 **가변 길이의 입력 문장**(X1 ~ XT)을 순서대로 받습니다.  입력 문장의 마지막까지 Encoder에서 받게되면, **전체 입력 문장을 요약한 C라는 hidden state**를 얻을 수 있습니다. (논문에서는 언급하지 않지만 C를 통상 **Context Vector**라고 부릅니다.)  Encoder의 각 step hidden state는 아래 수식처럼 이전 step의 hidden state (h_t-1)과 현재 step의 입력 (x_t)로 구할 수 있습니다.  
+우선 **Encoder**에서는 **가변 길이의 입력 문장**(X1 ~ XT)을 순서대로 받습니다.  입력 문장의 마지막까지 Encoder에서 받게되면, **전체 입력 문장을 요약한 C라는 hidden state**를 얻을 수 있습니다. (논문에서는 언급하지 않지만 C를 통상 **Context Vector**라고 부릅니다.)  
+Encoder의 **각 step의 hidden state** 는 아래 수식처럼 **이전 step의 hidden state (h_t-1)** 과 **현재 step의 입력 (x_t)** 로 구할 수 있습니다.  
 
 ![1](./seq2seq-paper/12.png "Encoder의 Hidden State")  
 
-**Decoder**에서는 앞서 구한 **Context Vector (C)**와 **이전 step의 hidden state(h_t-1)** 그리고 **이전 step의 출력(y_t-1)**로 **각 step의 hidden state**를 구할 수 있습니다.   
+**Decoder**에서는 앞서 구한 **Context Vector (C)** 와 **이전 step의 hidden state(h_t-1)** 그리고 **이전 step의 출력(y_t-1)** 로 **각 step의 hidden state**를 구할 수 있습니다.   
 
 ![2](./seq2seq-paper/13.png "Decoder의 Hidden State")  
 
-**Source sentence(X_n)가 주어졌을 때 Output sentence(Y_n)가 나올 확률을 최대화** 할 수 있도록 모델을 훈련시킵니다. 이때 세타는 모델의 파라미터를 의미합니다.  
+모델은 **Source sentence(X_n)가 주어졌을 때 Output sentence(Y_n)가 나올 확률을 최대화** 할 수 있도록 훈련하는 것이 목표입니다. 이때 세타는 모델의 파라미터를 의미합니다.  
 
 ![2](./seq2seq-paper/11.png "RNN Encoder-Decoder")  
 
@@ -61,7 +62,7 @@ GRU는 크게 **Reset gate**와 **Update gate**로 구성이 되어 있습니다
 
 ![2](./seq2seq-paper/4.png "Update Gate")  
 
-최종적으로 hidden state는 아래와 같이 구할 수 있습니다.   여기서 ⊙는 element-wise product이며, φ는 tanh 함수입니다. **Update gate와 Reset gate가 이전 hidden state 값의 비율을 조정하여 hidden state 값을 도출**하는 것을 확인할 수 있습니다.  
+최종적인 hidden state 값은 아래와 같이 구할 수 있습니다.   여기서 ⊙는 element-wise product이며, φ는 tanh 함수입니다. **Update gate와 Reset gate가 이전 hidden state 값의 비율을 조정하여 hidden state 값을 도출**하는 것을 확인할 수 있습니다.  
 
 ![2](./seq2seq-paper/6.png "hidden state 구하기 (1)")  
 ![2](./seq2seq-paper/5.png "hidden state 구하기 (2)")  
@@ -98,8 +99,11 @@ GRU는 크게 **Reset gate**와 **Update gate**로 구성이 되어 있습니다
 **정량 평가와 정성 평가를 진행**하였으며, 실험 결과는 아래와 같습니다.  
 
 ![2](./seq2seq-paper/9.png "Model BLEU Score")  
-우선 **정량 평가**를 살펴봅니다.
-SMT에 RNN Encoder-Decoder 모델을 적용했을 때 **Baseline보다 성능이 향상**된 것을 확인할 수 있습니다. 또한 **RNN과 CSLM을 함께 적용했을 때 가장 높은 성능**을 달성하였습니다. 여기에서 연구팀은 **RNN과 CSLM이 독립적으로 번역 시스템의 성능 향상에 기여**했다고 제시합니다.  
+
+우선 **정량 평가**를 살펴봅니다.  
+
+SMT에 RNN Encoder-Decoder 모델을 적용했을 때 **Baseline보다 성능이 향상**된 것을 확인할 수 있습니다. 또한 **RNN과 CSLM을 함께 적용했을 때 가장 높은 성능**을 달성하였습니다. 여기에서 연구팀은 **RNN과 CSLM이 독립적으로 번역 시스템의 성능 향상에 기여**했다고 주장합니다.  
+
 
 
 
