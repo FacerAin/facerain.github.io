@@ -14,7 +14,7 @@ thumbnail: "./seq2seq-attention-paper/th.jpg"
 - 기존 RNN Encoder-Decoder 모델에서 **입력 문장의 길이가 길어질수록 성능이 급격히 떨어지는 문제** 발생
 - 연구팀은 해당 모델에서 **Fixed-length Vector의 사용**이 성능 향상의 **bottleneck** 라고 추측
 - 연구팀은 위 문제를 해결하기 위해 target word의 예측과 관련 깊은 source sentence의 일부를 자동으로 search하는 **Attention 기법**을 제안 (논문에서 Attention 기법이라는 이름을 사용하지는 않습니다 🙂)
-- RNN 모델에 해당 Attention 기법을 적용하니, **긴 입력 문장을 더욱 잘 처리**하고, SOTA 성능의 **pharse-based 시스템과 대등한 성능**을 보임
+- RNN Encoder-Decoder 모델에 해당 Attention 기법을 적용하니, **긴 입력 문장을 더욱 잘 처리**하고, SOTA 성능의 **pharse-based 시스템과 대등한 성능**을 보임
 
   ![seq2seq](./seq2seq-attention-paper/1.png "RNN Encoder-Decoder(Seq2Seq) 모델")
 
