@@ -128,3 +128,9 @@ BLEU가 높을수록 높은 성능을 의미하는데, 연구팀이 제안한 RN
 - **Attention을 통해 긴 입력 문장에 대해서도 번역을 잘 수행할 수 있음**
 - 신경망이 번역기의 서브 모듈이 아닌 **그 자체로서 번역기의 임무를 수행해냄 (End-to-End 신경망 기계 번역기의 시작)**
 - 모르는, 희귀한 단어들을 어떻게 처리할 것인지 추가 연구 필요
+
+## Reference
+
+- [https://arxiv.org/abs/1409.0473](https://arxiv.org/abs/1409.0473)
+- [https://misconstructed.tistory.com/49](https://misconstructed.tistory.com/49)
+- [https://www.quantumdl.com/entry/6%EC%A3%BC%EC%B0%A81-Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate](https://www.quantumdl.com/entry/6%EC%A3%BC%EC%B0%A81-Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate)
