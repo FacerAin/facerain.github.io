@@ -13,13 +13,15 @@ thumbnail: "./seq2seq-attention-paper/th.jpg"
 
 - 기존 RNN Encoder-Decoder 모델에서 **입력 문장의 길이가 길어질수록 성능이 급격히 떨어지는 문제** 발생
 - 연구팀은 해당 모델에서 **Fixed-length Vector의 사용**이 성능 향상의 **bottleneck** 라고 추측
-  ![seq2seq](./seq2seq-attention-paper/1.png "RNN Encoder-Decoder(Seq2Seq) 모델")
 - 연구팀은 위 문제를 해결하기 위해 target word의 예측과 관련 깊은 source sentence의 일부를 자동으로 search하는 **Attention 기법**을 제안 (논문에서 Attention 기법이라는 이름을 사용하지는 않습니다 🙂)
 - RNN 모델에 해당 Attention 기법을 적용하니, **긴 입력 문장을 더욱 잘 처리**하고, SOTA 성능의 **pharse-based 시스템과 대등한 성능**을 보임
+
+  ![seq2seq](./seq2seq-attention-paper/1.png "RNN Encoder-Decoder(Seq2Seq) 모델")
 
 ## Learning To Align And Translate
 
 아래 그림은 연구팀이 제안한 Attention을 적용한 Encoder-Decoder 모델입니다.
+
 Encoder와 Decoder로 나누어 차례대로 살펴보겠습니다.
 ![seq2seq](./seq2seq-attention-paper/2.png "RNN Encoder-Decoder With Attention")
 
@@ -39,15 +41,14 @@ biRNN 모델은 각 단어의 hidden state를 계산할 때 **앞의 단어 뿐�
 
 위와 같이 구한 $h_j$는 $x_j$와 앞 뒤로 인접한 **이전 단어들과 다음 단어들의 정보를 가지고 있습니다.** 이것은 다음에 알아볼 decoder에서 alignment model과 context vector를 계산할 때 사용하게 됩니다.
 
-> Q. $h_j는 왜 하필 “인접한” 주변 단어들의 정보를 요약하여 가지고 있나요?
-> RNN은 비교적 주변 state의 정보를 많이 가지고 있는 경향이 있습니다. 예를 들어 어떤 RNN에서  $h_j$는 $h_{j-1}$이나 $h_{j-2}$ 등 인접한 state의 정보를 보다 많이 가지고 있습니다. 따라서 forward hidden state와 backward hidden state의 값을 합친 $h_j$는 x_j 앞 뒤로 인접한 단어들의 정보를 담고 있게 되는 것입니다.
+> RNN은 비교적 주변 state의 정보를 많이 가지고 있는 경향이 있습니다. 예를 들어 어떤 RNN에서 $h_j$는 $h_{j-1}$이나 $h_{j-2}$ 등 인접한 state의 정보를 보다 많이 가지고 있습니다. 따라서 forward hidden state와 backward hidden state의 값을 합친 $h_j$는 x_j 앞 뒤로 인접한 단어들의 정보를 담고 있게 되는 것입니다.
 
 ![seq2seq](./seq2seq-attention-paper/4.png "$h_j는 forward hidden state와 backward hidden state의 값을 concat")
 
 ## Decoder
 
 기존 Seq2Seq 모델에서는 Decoder의 Hidden State를 계산할 때 하나의 Context Vector ($c$)만을 사용했습니다.  
-하지만 연구팀이 제안한 모델에서는 Hidden State $s_i$를 계산할 때 각각의 target word 에 따라 개별적인 Context Vector $c_i$를 사용합니다.
+**하지만 연구팀이 제안한 모델에서는 Hidden State $s_i$를 계산할 때 각각의 target word 에 따라 개별적인 Context Vector $c_i$를 사용합니다.**
 ![seq2seq](./seq2seq-attention-paper/5.png "$s_i")
 
 각각의 Context Vector $c_i$를 구하는 방법을 알아봅시다.
@@ -84,6 +85,7 @@ score $e_{ij}$는 Decoder에서 i번째의 output 정보와, Encoder에서 j 주
 RNNencdec는 각각 1000개의 hidden unit들을 가지고, RNNsearch의 경우 forward와 backward RNN 각각에 1000개의 hidden unit을 가지고 있습니다.
 
 모델을 학습시킬때는 Adadelta 기법을 적용한 미니 배치 SGD를 사용하였습니다. 이때 미니 배치의 크기는 80 문장입니다. 연구팀은 각 모델을 학습시키는데 대략 5일정도 걸렸다고 합니다.
+학습한 모델은 테스트 데이터셋을 이용하여 정성 및 정량 평가를 진행하였습니다.
 
 ## Result
 
@@ -104,13 +106,13 @@ BLEU가 높을수록 높은 성능을 의미하는데, 연구팀이 제안한 RN
 
 정성 평가를 살펴보겠습니다. 아래 그림의 각 픽셀은 j-번째 입력 단어(영어)와 i 번째 출력 단어(프랑스어)의 Weight $\alpha_{ij}$ 값을 나타냅니다. **픽셀의 색상이 흰색일수록 두 단어간의 연관성이 높음을 의미합니다.**
 
-(a)에서 [European Economic Area]를 [zone economique europeen]에 주목하면, 두 구의 어순이 다름에도, 단어들을 정확하게 매칭하여 번역을 진행하였습니다.
+(a)에서 [European Economic Area]를 [zone economique europeen]에 주목하면, **두 구의 어순이 다름에도, 단어들을 정확하게 매칭하여 번역을 진행하였습니다.**
 
 또한 (d)에서 [the man]을 [l’ homme]로 번역한 것을 주목해봅시다. 사실 영어 [the]는 프랑스어로 [le], [la], [les], [l’] 다양하게 번역될 수 있습니다. 기존 hard-alignment 방식은 한 입력 단어는 다른 한 번역 단어로 일대일 매핑되어야만 했습니다. 따라서 위 문장을 번역하는데 어려움을 겪었습니다. 하지만 해당 모델은 soft-alignment하게 번역하므로, 해당 문제를 자연스럽게 해결할 수 있었습니다.
 
 ![seq2seq](./seq2seq-attention-paper/10.png "Weight 값을 시각화")
 
-또한 기존 RNNencdec은 문장이 길어질수록 고정된 크기의 context vector에 담을 수 있는 정보에 한계가 있었습니다. 따라서 번역이 진행될수록 번역 결과가 이상해지는 경향이 많았습니다. 아래 문장에서 밑줄 친 부분이 바로 입력 문장의 의미와 다르게 번역이 된 곳입니다.
+기존 RNNencdec은 문장이 길어질수록 고정된 크기의 context vector에 담을 수 있는 정보에 한계가 있었습니다. 따라서 번역이 진행될수록 번역 결과가 이상해지는 경향이 많았습니다. 아래 문장에서 밑줄 친 부분이 바로 입력 문장의 의미와 다르게 번역이 된 곳입니다.
 
 ![seq2seq](./seq2seq-attention-paper/11.png "RNN Ecoder-Decoder의 번역 결과")
 
