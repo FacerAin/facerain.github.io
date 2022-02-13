@@ -10,7 +10,7 @@ MST(Minimum Spanning Tree, 최소 스패닝 트리) 문제를 푸는 방법 중 
 
 ## 최소 스패닝 트리(MST) 문제
 스패닝 트리란 **어떤 그래프의 정점 전부와 간선의 일부를 트리 형태로 연결한 부분 그래프** 입니다. 트리 형태로 연결했다는 의미는 곧 **간선들간의 사이클이 없는 그래프** 라는 뜻입니다.
-![Spanning Tree]("출처 https://www.tutorialspoint.com/data_structures_algorithms/spanning_tree.htm")
+![Spanning Tree](./algorithm-kruskal/st.jpg "출처 https://www.tutorialspoint.com/data_structures_algorithms/spanning_tree.htm")
 
 여기서 **최소 스패닝 트리**란 어떤 가중치 그래프의 스패닝 트리 중 가중치의 합이 가장 작은 스패닝 트리입니다.
 
