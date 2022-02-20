@@ -48,13 +48,17 @@ Transformer 모델의 구조는 아래와 같습니다.
 ![2](./transformer-paper/2.png "Decoder 구조")
 디코더도 N=6개의 레이어들의 스택으로 구성되어 있습니다.
 추가로 디코더에서는 세 개의 서브 레이어가 있습니다. Masking이 추가된 Masked Multi Head Attention, 인코더의 정보를 참조하는 Multi-Head Attention 그리고 Feed Forward로 구성되어 있습니다.
-인코더 스택과 마찬가지로 residual connection(잔차 연결)과 layer normalization 적용되어 있습니다. Decoder에서 계산이 끝나면 선형 변환과, Softmax를 거쳐 다음 단어의 확률을 계산하게 됩니다.
+인코더 스택과 마찬가지로 residual connection(잔차 연결)과 layer normalization가 적용되어 있습니다. Decoder에서 계산이 끝나면 선형 변환과, Softmax를 거쳐 다음 단어의 확률을 계산하게 됩니다.
 
 ## Scaled Dot-Product Attention
 
 서브 레이어의 구성 요소를 하나씩 살펴보겠습니다. **앞서 인코더와 디코더에서 나온 Multi-Head Attention은 Scaled Dot-Product Attention으로 구성된 것입니다.**  
 수식은 아래와 같습니다. Dot-Product Attention와 거의 유사합니다. Q, K, V는 각각 Query, Key, Value 행렬이며, $d_k$는 Query와 Key의 차원을 의미합니다.
-$Attention(Q,K,V) = softmax({QK^{T}\over \sqrt{d_{k}}})V$  
+
+$$
+Attention(Q,K,V) = softmax({QK^{T}\over \sqrt{d_{k}}})V
+$$
+
 ![3](./transformer-paper/3.png "Scaled Dot-Product Attention 계산 과정")
 기존에는 attention function으로 주로 addictive attention과 dot-product attention을 사용합니다.
 
@@ -101,8 +105,10 @@ Decoder에서 Multi-Head Attention 부분입니다. Query는 이전 디코더 �
 
 ## Position-wise Feed-Forward Networks
 
-Attention 이후에 fully connected feed-forward network를 지납니다. **이때 FFN은 각 position, 즉 각 단어마다 적용하게 됩니다.** 따라서 FFN에 position-wise라는 이름이 붙었습니다. 입력 벡터 x에 대해 선형 변환을 거친 뒤, ReLU 함수를 적용합니다. 그리고 한번 더 선형 변환을 적용하게 됩니다. 이때 레이어에서 각각의 position의 벡터들에 대해서 같은 파라미터 값($W_1, b_1, W_2, b_2$)를 사용합니다. 레이어가 달라지면 다른 파라미터 값을 사용합니다. 논문에서 이 과정은 kernel size가 1이고, channel이 layer인 convolution을 두 번 수행한 것으로 이해할 수 있다고 합니다. 수식은 아래와 같습니다.  
+Attention 이후에 fully connected feed-forward network를 지납니다. **이때 FFN은 각 position, 즉 각 단어마다 적용하게 됩니다.** 따라서 FFN에 position-wise라는 이름이 붙었습니다. 입력 벡터 x에 대해 선형 변환을 거친 뒤, ReLU 함수를 적용합니다. 그리고 한번 더 선형 변환을 적용하게 됩니다. 이때 레이어에서 각각의 position의 벡터들에 대해서 같은 파라미터 값($W_1, b_1, W_2, b_2$)를 사용합니다. 레이어가 달라지면 다른 파라미터 값을 사용합니다. 논문에서 이 과정은 kernel size가 1이고, channel이 layer인 convolution을 두 번 수행한 것으로 이해할 수 있다고 합니다. 수식은 아래와 같습니다.
+
 $$ FFN(X) = max(0,xW_1+b_1)W_2+b_2 $$
+
 ![7](./transformer-paper/7.png "Position-wise Feed-Forward Networks 계산 과정")
 
 ## Embedding and Softmax
@@ -111,8 +117,10 @@ $$ FFN(X) = max(0,xW_1+b_1)W_2+b_2 $$
 
 ## Positional Encoding
 
-**Transformer은 RNN이나 CNN 모델과 다르게 순서 정보를 부가적으로 주입해주어야 합니다.** 이를 위해 본 논문에서는 임베딩을 거친 후 인코더와 디코더에 값을 넣기 전에 Positional Encoding을 수행합니다. Positional Encoding 방법에는 여러 가지가 있으나, **연구팀은 Sinusoid Encoding 방식을 선택했습니다.** pos는 position, i는 dimension을 의미합니다.  
-$PE(pos,2i) = sin(pos/10000^{2i/d_{model}}) \\ PE(pos,2i+1) = cos(pos/10000^{2i/d_{model}})$  
+**Transformer은 RNN이나 CNN 모델과 다르게 순서 정보를 부가적으로 주입해주어야 합니다.** 이를 위해 본 논문에서는 임베딩을 거친 후 인코더와 디코더에 값을 넣기 전에 Positional Encoding을 수행합니다. Positional Encoding 방법에는 여러 가지가 있으나, **연구팀은 Sinusoid Encoding 방식을 선택했습니다.** pos는 position, i는 dimension을 의미합니다.
+
+$PE(pos,2i) = sin(pos/10000^{2i/d_{model}}) \\ PE(pos,2i+1) = cos(pos/10000^{2i/d_{model}})$
+
 sinusoid한 Positional Encoding에 대한 자세한 설명은 [[Transformer]-1 Positional Encoding은 왜 그렇게 생겼을까? 이유](https://velog.io/@gibonki77/DLmathPE)을 참고해주세요.
 
 이를 통해 모델이 문장의 relative position 정보를 함께 학습할 수 있습니다. 또한 sinusoid 특징 덕분에 Inference 단계에서 training 때보다 더욱 긴 문장이 입력되더라도 모델이 문제없이 처리할 수 있습니다.
@@ -125,9 +133,9 @@ self-attention을 사용하면 크게 **세 가지의 이점**이 있다고 합�
 2. 병렬 처리 가능한 계산이 늘어남
 3. long-range dependency 간의 거리의 최소화
 
-아래 표를 보면 다른 모델과 비교했을 때 Transformer의 강점을 확인할 수 있습니다. 대부분의 NLP 문제에서 시퀀스의 길이 n이 임베딩 차원 d보다 작은 경우가 대부분입니다. 따라서 위에서 말한 세가지 요소가 모두 뛰어난 것을 볼 수 있습니다.
+아래 표를 보면 다른 모델과 비교했을 때 **Transformer의 강점을** 확인할 수 있습니다. 대부분의 NLP 문제에서 시퀀스의 길이 n이 임베딩 차원 d보다 작은 경우가 대부분입니다. 따라서 위에서 말한 세가지 요소가 모두 뛰어난 것을 볼 수 있습니다.
 ![8](./transformer-paper/8.png)
-추가로 Self Attention을 사용하면 시각화가 가능하여, 모델이 왜 이런 결과를 내놓았는지 해석 가능(interpretable)하다는 장점이 있습니다. 아래 그림은 Model의 Attention Map을 시각화한 것입니다.
+추가로 Self Attention을 사용하면 시각화가 가능하여, **모델이 왜 이런 결과를 내놓았는지 해석 가능(interpretable)하다는 장점이 있습니다.** 아래 그림은 Model의 Attention Map을 시각화한 것입니다.
 ![9](./transformer-paper/9.png "Attention Map의 시각화")
 
 ## Training
