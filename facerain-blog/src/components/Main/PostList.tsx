@@ -1,33 +1,30 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import PostItem from 'components/Main/PostItem';
-import { FluidObject } from 'gatsby-image';
-import useInfiniteScroll, {useInfiniteScrollType} from 'hooks/useInfiniteScroll';
-
-
+import React, { FunctionComponent, useMemo } from "react"
+import styled from "@emotion/styled"
+import PostItem from "components/Main/PostItem"
+import { FluidObject } from "gatsby-image"
 export type PostType = {
   node: {
-    id: string;
-	fields: {
-		slug: string;
-	}
+    id: string
+    fields: {
+      slug: string
+    }
     frontmatter: {
-      title: string;
-      summary: string;
-      date: string;
-      categories: string[];
+      title: string
+      summary: string
+      date: string
+      categories: string[]
       thumbnail: {
         childImageSharp: {
-          fluid: FluidObject;
-        };
-      };
-    };
-  };
-};
+          fluid: FluidObject
+        }
+      }
+    }
+  }
+}
 
 interface PostListProps {
-	selectedCategory: string;
-  posts: PostType[];
+  selectedCategory: string
+  posts: PostType[]
 }
 
 const PostListWrapper = styled.div`
@@ -43,21 +40,30 @@ const PostListWrapper = styled.div`
     width: 100%;
     padding: 50px 20px;
   }
-`;
-
+`
 
 const PostList: FunctionComponent<PostListProps> = function ({
   selectedCategory,
   posts,
 }) {
-  const { containerRef, postList }: useInfiniteScrollType = useInfiniteScroll(
-    selectedCategory,
-    posts,
-  );
+  const postListByCategory = useMemo<PostType[]>(
+    () =>
+      posts.filter(
+        ({
+          node: {
+            frontmatter: { categories },
+          },
+        }: PostType) =>
+          selectedCategory !== "All"
+            ? categories.includes(selectedCategory)
+            : true
+      ),
+    [selectedCategory]
+  )
 
   return (
-    <PostListWrapper ref={containerRef}>
-      {postList.map(
+    <PostListWrapper>
+      {postListByCategory.map(
         ({
           node: {
             id,
@@ -66,11 +72,10 @@ const PostList: FunctionComponent<PostListProps> = function ({
           },
         }: PostType) => (
           <PostItem {...frontmatter} link={slug} key={id} />
-        ),
+        )
       )}
     </PostListWrapper>
-  );
-};
+  )
+}
 
-export default PostList;
-
+export default PostList
