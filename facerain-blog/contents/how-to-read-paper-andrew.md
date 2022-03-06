@@ -1,8 +1,8 @@
 ---
-date: '2021-08-15'
+date: '2022-03-06'
 title: '머신러닝/딥러닝 논문 읽기 by Andrew Ng'
 categories: ['Tip', 'NLP', 'Paper']
-summary: 'Andrew Ng 교수님이 강의한 효율적인 논문 읽기 방법을 알아봅시다.'
+summary: 'Andrew Ng 교수님의 효율적인 논문 읽기 방법을 알아봅시다.'
 thumbnail: './how-to-read-paper-andrew/th.jpg'
 ---
 
