@@ -5,7 +5,8 @@ categories: ["NLP", "Paper"]
 summary: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding 논문을 리뷰합니다."
 thumbnail: "./bert-paper/th.jpg"
 ---
-이번 시간에는 [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805) 논문을 리뷰합니다.
+이번 시간에는 [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805) 논문을 리뷰합니다.  
+BERT는 등장과 동시에 Question Answering 등 다양한 NLP 문제들에 강력한 성능을 보여주며 NLP 분야에 한 획을 그은 모델입니다.  
 
 ## Abstract
 - 연구팀은 BERT(**Bidirectional Encoder Representations from Transformers**) 모델을 제시합니다.
