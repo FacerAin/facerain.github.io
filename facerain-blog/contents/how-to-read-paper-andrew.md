@@ -45,7 +45,7 @@ ML/DL을 공부하다보면 ML/DL 논문 읽기의 중요성을 많이 강조합
 
 ![bert-figure](./how-to-read-paper-andrew/1.png "Bert 논문에 등장하는 Figure입니다. 이것만 보더라도 Bert가 어떤 모델인지 대략 유추할 수 있습니다.")
 
-2. **Introduction/Conclusion/Figures 읽어보기**
+2. **Introduction/Conclusion/Figures 읽어보기**  
    Introduction이나 Conclusion은 심사위원들에게 **해당 논문이 왜 Accept 되어야 하는지 설득하는 글** 이라고 볼 수 있습니다. 따라서 논문 저자들은 해당 부분을 아주 신중하게 작성합니다.  
    따라서 **Introduction이나 Conclusion만 꼼꼼히 읽더라도 해당 논문이 말하고자 하는 바를 전체적으로 깨달을 수 있습니다.**
    또한 이 단계에서 해당 논문을 더 자세히 읽을지 말지를 결정할 수 있습니다.
