@@ -11,7 +11,7 @@ BERT는 등장과 동시에 Question Answering 등 다양한 NLP 문제들에 �
 
 ![bert-cite](./bert-paper/bert-usage.png "bert 모델의 usage 추이 출처: paperswithcode")
 위 그림은 bert 모델의 사용 추이를 나타낸 그래프입니다. 2022년 현재까지도 많은 논문에서 BERT 모델을 다루는 것을 볼 수 있습니다. 이처럼 BERT 모델은 최신 NLP 트렌드를 이해하기 위해서 필수라해도 과언이 아닙니다. 그럼 BERT에 대해 함께 알아보도록 합시다!
-[Transformer 논문 리뷰](https://facerain.club/transformer-paper/) 와 함께 읽어보시면 큰 도움이 됩니다!
+[Transformer 논문 리뷰](https://facerain.club/transformer-paper/)와 함께 읽어보시면 큰 도움이 됩니다!
 
 ![bert](./bert-paper/bert.jpg "BERT에 대해 알아봅시다!")
 
