@@ -49,6 +49,7 @@ Account:
 하지만 **bkAccOverProtFtActBln**라는 이름을 딱 들었을 때 어떤 기능을 하는지 쉽게 유추할 수 있나요? 추가 설명 없이는 **해당 속성의 기능을 쉽게 이해할 수 없었을 것입니다.**
 
 해당 속성의 이름을 명확하게 바꿔보겠습니다.
+<br/><br/>
 
 #### **약어의 사용은 피하자**
 
@@ -57,6 +58,7 @@ bkAccOverProtFtActBln을 보면 대부분 약어로 이루어져 있습니다. *
 물론 max, min, num과 같이 일상적으로 자주 사용하는 약어의 경우에는 괜찮습니다!
 
 한번 약어를 덜어내보면, **bankAccountOverdraftProtectionFeatureActiveBoolean**로 바꿀 수 있습니다.
+<br/><br/>
 
 #### **유용하지 않은 정보는 제거하자**
 
