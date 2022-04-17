@@ -16,10 +16,9 @@ BART는 Facebook에서 발표한 모델로, 기존 트랜스포머 구조에 새
 
 - BART는 seq2seq 모델의 프리트레인을 위한 **denoising autoencoder**
 - BART는 기초적인 Transformer 기반 neural machine translation 구조임
-- BART의 학습 방법
-    - **임의의 noising function으로 손상된 텍스트를 복구하도록 학습**
+- BART는 **임의의 noising function으로 손상된 텍스트를 복구하도록 학습**합니다.
 - 본 연구에서는 다양한 noising 기법을 평가함
-    - 이때 **원본 문장을 랜덤하게 섞고, Text Infilling 기법을 사용할 때 가장 좋은 성능을 보임**
+- 이때 **원본 문장을 랜덤하게 섞고, Text Infilling 기법을 사용할 때 가장 좋은 성능을 보임**
 - BART는 **문장 생성과 문맥 이해 Task에 특히 효과적**
 - RoBERTa와 유사한 학습 환경에서 QA, 요약, abstractive dialogue Task들에서 SOTA 성능을 보임
 
@@ -94,27 +93,27 @@ BART는 이전 연구들에 비해 더 많은 nosing scheme을 지원합니다. 
 - **Comparison Objectives**
     - BART와 기존 모델 간의 아키텍쳐 차이, 파인 튜닝 절차, 학습 데이터와 리소스 차이로 완전히 공평한 비교는 힘듭니다.
     - **연구팀은 프리트레인 목적에 관련 없는 것들만 가능한 한 조정하여 실험을 진행하였습니다.**
-    - 하지만 성능을 향상 시키기 위한 학습률이나 레이어 정규화등은 약간 변형하였다.
+    - 하지만 성능을 향상 시키기 위한 학습률이나 레이어 정규화등은 약간 변형하였습니다.
 - **Language Model**
-    - GPT와 유사하게 left-to-right Transformer Lanauge Model을 학습시켰다. 이 모델은 cross-attention이 없는 BART decoder 모델과 같다.
+    - GPT와 유사하게 left-to-right Transformer Lanauge Model을 학습시켰습니다. 이 모델은 cross-attention이 없는 BART decoder 모델과 같습니다.
 - **Permuted Language Model**
-    - XLNet에 기반하여, 토큰들의 1/6을 샘플링하고, autoregressive하게 랜덤한 순서로 이들 토큰을 생성하였다.
+    - XLNet에 기반하여, 토큰들의 1/6을 샘플링하고, autoregressive하게 랜덤한 순서로 이들 토큰을 생성하였습니다.
     - 다른 모델과의 일관성을 위해 XLNet의 relative positional embedding이나 attention across segments는 구현하지 않았습니다.
 - **Masked Language Model**
     - BERT와 같이, 토큰의 15%를 [MASK]로 대체하고, 원래 토큰을 독립적으로(?) 예측할 수 있도록 훈련시켰습니다.
 - **Multitask Masked Language Model**
     - UniLM처럼, 추가적인 Self-attention masks가 있는 Masked Language Model을 훈련시켰습니다. Self attention mask들은 아래  비율에 따라 랜덤하게 선택되었습니다.
-        - 1/6 left-to-right, 1/6 right-to-left, 1/3 un-masked, 1/3 first 50% of tokens unmasked and a left-to-right mask for the remainder
+    - 1/6 left-to-right, 1/6 right-to-left, 1/3 un-masked, 1/3 first 50% of tokens unmasked and a left-to-right mask for the remainder
 - **Masked Seq-to-Seq**
     - MASS처럼, 토큰들의 50%를 span을 포함한 마스킹을 하였습니다.
     - 그리고 masked tokens를 예측하도록, seq2seq 모델을 학습하였습니다.
-- Permuted LM, Masked LM, Multitask Masked LM에 대해서는 two-stream attention을 적용하였습니다. 이를 통해 문장의 출력 부분의 likelihoos를 보다 효율적으로 계산할 수 있습니다.  
+추가로 Permuted LM, Masked LM, Multitask Masked LM에 대해서는 two-stream attention을 적용하였습니다. 이를 통해 문장의 출력 부분의 likelihoos를 보다 효율적으로 계산할 수 있었습니다.  
 
 
 **연구팀은 2가지 경우를 실험하였습니다.**
 - (1) 인코더에 source input이 주어지고, decoder ouput으로 target을 내보내는, 기본적인 seq2seq 문제
 - (2) source를 디코더의 target의 prefix로 주고, 문장의 target 부분만 loss를 계산
-- **BART 모델은 전자에 대해 좋은 성능을 보였고, 후자는 나머지 다른 모델이 좋은 성능을 보였다.**  
+- **BART 모델은 전자에 대해 좋은 성능을 보였고, 후자는 나머지 다른 모델이 좋은 성능을 보였습니다.**  
 
 **연구팀은 아래와 같은 Task들을 수행하였습니다.**
 - SquAD
@@ -124,7 +123,7 @@ BART는 이전 연구들에 비해 더 많은 nosing scheme을 지원합니다. 
 - ConvAI2
 - CNN/DM  
 
-결과는 아래와 같습니다.
+**결과는 아래와 같습니다.**
 ![BART](./bart-paper/4.png "BART와 다른 모델 성능 비교")
 
 - **프리 트레인 방법의 성능은 task에 크게 의존한다.**
