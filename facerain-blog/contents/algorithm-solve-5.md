@@ -21,7 +21,7 @@ thumbnail: "./algorithm-solve-5/th.jpg"
 using namespace std;
 int map[25][25];
 bool check[25];
-int N;  
+int N;
 int ans = 999999999;
 void solve(int member, int pos){
     if(member == N/2){
@@ -40,7 +40,7 @@ void solve(int member, int pos){
         ans = min(ans, abs(start - link));
         return;
     }
-    
+
     for(int i = pos; i < N-1; i++){
         if(!check[i]){
             check[i] = true;
@@ -48,7 +48,7 @@ void solve(int member, int pos){
             check[i]= false;
         }
     }
-    
+
     return;
 }
 
@@ -64,11 +64,13 @@ int main(){
     }
     solve(0,0);
     cout << ans;
-    
+
 }
 ```
 
 ## 알고리즘 검증
 
-팀을 선정하는 시간복잡도는 O(${n \choose {n/2}}$)이고, 선정된 팀에서 점수를 구하는 시간 복잡도는 O(n^2)입니다.
-따라서 알고리즘의 전체 시간복잡도는 O(${n \choose {n/2}}$ * n^2)으로, 주어진 n의 최대값이 20이므로, 문제를 해결할 수 있습니다.
+팀을 선정하는 시간복잡도는 O(${n \choose {n/2}}$)이고, 선정된 팀에서 점수를 구하는 시간 복잡도는 O(n^2)입니다.  
+
+따라서 알고리즘의 전체 시간복잡도는 **O(${n \choose {n/2}}$ \* n^2)**입니다.
+이때, 주어진 n의 최대값이 20이므로, 문제를 해결할 수 있습니다.
