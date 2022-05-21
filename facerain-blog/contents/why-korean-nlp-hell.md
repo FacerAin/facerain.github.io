@@ -1,6 +1,6 @@
 ---
 date: "2022-05-22"
-title: "왜 한국어 NLP는 어려울까?"
+title: "한국어 NLP는 왜 어려울까?"
 categories: ["NLP", "Tip"]
 summary: "한국어 NLP가 어려운 이유를 알아봅시다."
 thumbnail: "./why-korean-nlp-hell/th.jpg"
