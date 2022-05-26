@@ -57,7 +57,7 @@ one-hot 인코딩 된 사전 벡터 (V)를 히든 레이어(H)에 바로 투영(
 
 **하지만 연구팀이 제안한 방법은 (V X E + E X H)로  30000 X 128 + 128 X 768(=약 3백 90만) 차원으로 약 10배 가까이 파라미터를 감소시킬 수 있습니다.**  
 
-## 2. Cross-layer parameter sharing
+### 2. Cross-layer parameter sharing
 
 연구팀은 파라미터 효율성을 높이기 위해 **Cross-layer parameter sharing**을 제안합니다. parameter sharing 기법에는 여러가지가 있습니다.
 
@@ -71,7 +71,7 @@ one-hot 인코딩 된 사전 벡터 (V)를 히든 레이어(H)에 바로 투영(
 
 ![1](./albert-paper/1.png "parameter sharing의 영향")
 
-## 3. Inter-sentence coherence loss
+### 3. Inter-sentence coherence loss
 
 BERT에서는 MLM(Masked Language Modeling)과 NSP(Next Sentence Prediction) 두 가지 Task를 학습합니다. **여기에서 연구팀은 이전 연구를 통해 NSP Task가 모델 성능 향상에 큰 도움이 되지 않는다고 판단합니다.** 그 이유는 NSP가 MLM에 비해 난이도가 쉽기 떄문입니다. 또한 NSP는 주제 예측(Topic Prediction)과 문장의 일관성(Coherence Prediction)에 대한 예측을 동시에 수행합니다. 그러나 주제 예측은 문장 일관성 예측에 비해 쉽고, MLM에서도 주제 예측을 수행하여 기능이 겹친다는 단점이 있습니다.
 
