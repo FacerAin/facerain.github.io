@@ -21,14 +21,6 @@ thumbnail: "./roberta-paper/th.jpg"
   - dynamic masking 기법을 적용
 - RoBERTa 모델은 GLUE, RACE, SQuAD에서 **SOTA 성능을 달성**
 
-## Abstract
-
-- NLP 모델 사이즈 증가는 성능 향상에 영향을 미쳤다.
-- 하지만 **모델 사이즈 증가는 GPU/TPU 메모리 한계와 훈련 시간이 길어진다는 문제점**이 있음
-- ALBERT는 **두가지 parameter-reduction 테크닉**을 사용하여 **적은 메모리 사용과 훈련 속도 향상을 이룸**
-- multi sentence input에 대해서는 문장 간 일관성(inter sentence coherence) 모델링을 통해 성능을 향상
-- GLUE, RACE, SQuAD 벤치마크에서 BERT-Large보다 적은 파라미터로 **SOTA 성능을 달성**
-
 ## Training Procedure Analysis
 
 ### 1. Static VS Dynamic Masking
@@ -68,17 +60,17 @@ DOC-SENTENCES가 가장 좋은 성능을 보였지만, 배치 사이즈가 계�
 BERT base 모델은 1M step에 배치 사이즈 256 문장으로 학습을 진행했습니다. 이는 gradient accumulation을 사용했을 때, 배치 사이즈 2K로 125K 스텝을 진행한 것과 배치 사이즈 8K로 31K step을 진행하는 것은 동일한 computation cost를 가진다고 합니다.
 
 > Q. gradient accumulation이 뭐죠?  
-> A. 미니 배치를 통해 구해진 gradient를 n-step동안 Global Gradients에 누적시킨 후 한번에 업데이트 하는 방법입니다. 자세한 내용은 링크(https://velog.io/@twinjuy/OOM%EB%A5%BC-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%9C-Batch-Accumulation)를 참고해주세요.
+> A. 미니 배치를 통해 구해진 gradient를 n-step동안 Global Gradients에 누적시킨 후 한번에 업데이트 하는 방법입니다. 자세한 내용은 [링크](https://velog.io/@twinjuy/OOM%EB%A5%BC-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%9C-Batch-Accumulation)를 참고해주세요.
 
 ![3](./roberta-paper/3.png "배치 사이즈와 스텝에 따른 성능 비교")
 
-실험 결과 큰 배치들로 학습하는 것은 모델의 perplexity를 개선할 뿐만 아니라 end-task의 정확도도 향상시켰습니다. 또한 큰 배치들은 분산 데이터 병렬 학습을 통해 병렬화하기 더욱 쉽다고 합니다.
+**실험 결과 큰 배치들로 학습하는 것은 모델의 perplexity를 개선할 뿐만 아니라 end-task의 정확도도 향상시켰습니다.** 또한 큰 배치들은 분산 데이터 병렬 학습을 통해 **병렬화하기 더욱 쉽다고 합니다.**
 
 ### 4. Text Encoding
 
 기존 BERT에서는 문자 단위(character-level)의 BPE를 사용하였습니다.
 
-**하지만 RoBERTa는 byte level BPE를 사용하였습니다.** 이를 통해 Unknown 토큰 없이도, 적당한 크기(50K units) 서브워드 사전으로 학습을 진행할 수 있습니다.
+**하지만 RoBERTa는 byte level BPE를 사용하였습니다.** **이를 통해 Unknown 토큰 없이도, 적당한 크기(50K units) 서브워드 사전으로 학습을 진행할 수 있습니다.**
 
 Byte level BPE는 몇 개의 Task에서 성능이 떨어진다는 단점이 있지만, 성능 하락폭이 크지 않고 유니버설 인코딩의 장점이 있다고 연구팀은 판단하여 연구팀은 Byte level BPE를 적용하였습니다.
 
@@ -106,7 +98,7 @@ BBPE에 대한 자세한 실험은 추후 연구에서 진행한다고 합니다
 - 모델을 더 많은 데이터로, 큰 배치로, 더 오래 학습시켜 성능을 향상시킬 수 있었음
 - NSP 태스크 제거하고, 더 긴 문장들로 학습시킴.
 - Dynamic Masking을 적용
-- 이를 통해 RoBERTa는 대부분의 벤치마크 Task에서 SOTA 성능을 달성할 수 있었음
+- **이를 통해 RoBERTa는 대부분의 벤치마크 Task에서 SOTA 성능을 달성할 수 있었음**
 
 ## Reference
 
