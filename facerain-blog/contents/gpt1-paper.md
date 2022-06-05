@@ -6,7 +6,8 @@ summary: "Improving Language Understanding by Generative Pre-Training 논문을 
 thumbnail: "./gpt1-paper/th.jpg"
 ---
 
-이번 시간에는 GPT-1 논문을 리뷰합니다. **BERT와 함께 NLP에 한 획은 그은 모델 중 하나로**, 이때부터 NLP 프리트레인과 파인튜닝 모델이 힘이 실리기 시작하였습니다. 최근 GPT-1 모델의 후속작으로 GPT-3 모델까지 발표되었는데, 매우 강력한 성능이 특징입니다. 관련 포스트는 [링크](http://www.aitimes.kr/news/articleView.html?idxno=17370)를 참고해주세요. 그럼 지금부터 GPT-1 모델을 알아보겠습니다. 논문은 [링크](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)에서 확인할 수 있습니다.
+이번 시간에는 GPT-1 논문을 리뷰합니다. **BERT와 함께 NLP에 한 획은 그은 모델 중 하나로**, 이때부터 NLP 프리트레인과 파인튜닝 모델이 힘이 실리기 시작하였습니다.  
+최근 GPT-1 모델의 후속작으로 GPT-3 모델까지 발표되었는데, 매우 강력한 성능이 특징입니다. 관련 포스트는 [링크](http://www.aitimes.kr/news/articleView.html?idxno=17370)를 참고해주세요. 그럼 지금부터 GPT-1 모델을 알아보겠습니다. 논문은 [링크](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)에서 확인할 수 있습니다.
 
 ![GPT](./gpt1-paper/1.png "GPT-1 모델에 대해 알아봅시다!")
 
@@ -99,7 +100,7 @@ GPT-1의 훈련 절차는 두가지 단계로 구성됩니다.
 
 ## Analysis
 
-연구팀은 **레이어 개수에 따른 전이의 영향(impact of transferring)**을 살펴보았습니다. 왼쪽 도표는 프리 트레인 모델에서 transfer된 레이어 개수에 따른 성능을 나타낸 것입니다. 두번째로 언어 모델의 프리트레인의 전이가 왜 효과적인지 알아보기 위해 모델의 **Zero-shot performance를** 살펴보았습니다. 오른쪽 도표는 프리 트레인만을 진행했을 때(zero-shot)의 성능을 나타냈습니다.
+연구팀은 **레이어 개수에 따른 전이의 영향(impact of transferring)** 을 살펴보았습니다. 왼쪽 도표는 프리 트레인 모델에서 transfer된 레이어 개수에 따른 성능을 나타낸 것입니다. 두번째로 언어 모델의 프리트레인의 전이가 왜 효과적인지 알아보기 위해 모델의 **Zero-shot performance** 를 살펴보았습니다. 오른쪽 도표는 프리 트레인만을 진행했을 때(zero-shot)의 성능을 나타냈습니다.
 
 ![GPT](./gpt1-paper/11.png "Impact of transferring and Zero-shot performance")
 
@@ -117,5 +118,5 @@ GPT-1의 훈련 절차는 두가지 단계로 구성됩니다.
 
 ## Conclusion
 
-- 프리 트레인과 파인 튜닝을 통해 특정 Task에 종속되지 않고 성능이 강력한 모델을 만들 수 있었음.
-- 프리 트레인에서 길고 연속된 텍스트를 통해 world knowledge(?)와 long-range dependency를 학습하고, 이를 성공적으로 파인튜닝을 통해 전이하여 좋은 성능을 보일 수 있었다.
+- 프리 트레인과 파인 튜닝을 통해 **특정 Task에 종속되지 않고 성능이 강력한 모델** 을 만들 수 있었음.
+- **프리 트레인에서 길고 연속된 텍스트를 통해 world knowledge(?)와 long-range dependency를 학습하고, 이를 성공적으로 파인튜닝을 통해 전이하여 좋은 성능을 보일 수 있었다.**
