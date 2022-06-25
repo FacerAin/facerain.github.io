@@ -23,7 +23,8 @@ const Footer: FunctionComponent = function () {
   return (
     <FooterWrapper>
       <div>
-        <br />© 2021 Designed By <LinkText to="about">Yongwoo Song</LinkText>,
+        <br />© 2021 Designed By{" "}
+        <LinkText to="https://facerain.club/about/">Yongwoo Song</LinkText>,
         Powered By Gatsby.
       </div>
     </FooterWrapper>
