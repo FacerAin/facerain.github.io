@@ -54,6 +54,9 @@ const ContactAreaItemWrapper = styled.div`
 const ContactAreaItem = styled(Link)`
 padding: 30px;
 `
+const ContactAreaMailItem = styled.a`
+padding: 30px;
+`
 const MainHeaderText = styled.div`
   padding-left:40px;
   padding-right:40px;
@@ -99,6 +102,15 @@ const MainLinkText = styled(Link)`
   }
 `
 
+const MailLinkText = styled.a`
+font-size: 23px;
+padding: 5px;
+text-decoration: underline;
+@media (max-width: 768px) {
+  font-size: 35px;
+}
+`
+
 const SubHeaderText = styled.div`
   font-size: 35px;
   @media (max-width: 768px) {
@@ -113,7 +125,7 @@ const NotFoundPage: FunctionComponent = function () {
       <MainAreaWrapper>
         <MainHeaderText>Growth Is All I need</MainHeaderText>
         <UserNameText>Yongwoo Song</UserNameText>
-        <MainLinkText to='mailto:ywsong.dev@kakao.com'>ywsong.dev@kakao.com</MainLinkText>
+        <MailLinkText href='mailto:ywsong.dev@kakao.com'>ywsong.dev@kakao.com</MailLinkText>
         <MainLinkText to='http://facerain.club'>http://facerain.club</MainLinkText>
       </MainAreaWrapper>
       <AbstarctAreaWrapper>
@@ -138,12 +150,12 @@ const NotFoundPage: FunctionComponent = function () {
       <ContactAreaWrapper>
       <SubHeaderText>Contact</SubHeaderText>
       <ContactAreaItemWrapper>
-        <ContactAreaItem to='mailto:ywsong.dev@kakao.com'>
-        <AiOutlineMail size={'5em'}></AiOutlineMail>
-        </ContactAreaItem>
+
 <ContactAreaItem to='https://facerain.club'>        <AiOutlineHome size={'5em'}></AiOutlineHome></ContactAreaItem>
 <ContactAreaItem to="https://github.com/FacerAin">        <AiOutlineGithub size={'5em'}></AiOutlineGithub></ContactAreaItem>
-
+<ContactAreaMailItem href='mailto:ywsong.dev@kakao.com'>
+        <AiOutlineMail size={'5em'}></AiOutlineMail>
+        </ContactAreaMailItem>
 
       </ContactAreaItemWrapper>
  
