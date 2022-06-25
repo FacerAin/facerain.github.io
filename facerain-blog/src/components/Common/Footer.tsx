@@ -1,8 +1,6 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-
-
-
+import React, { FunctionComponent } from "react"
+import styled from "@emotion/styled"
+import { Link } from "gatsby"
 const FooterWrapper = styled.footer`
   display: grid;
   place-items: center;
@@ -15,14 +13,21 @@ const FooterWrapper = styled.footer`
   @media (max-width: 768px) {
     font-size: 13px;
   }
-`;
+`
+const LinkText = styled(Link)`
+  text-decoration: underline;
+  display: inline;
+`
 
 const Footer: FunctionComponent = function () {
   return (
     <FooterWrapper>
-      <br />© 2021 Designed By Yongwoo Song, Powered By Gatsby.
+      <div>
+        <br />© 2021 Designed By <LinkText to="about">Yongwoo Song</LinkText>,
+        Powered By Gatsby.
+      </div>
     </FooterWrapper>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
