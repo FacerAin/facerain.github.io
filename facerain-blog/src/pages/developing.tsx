@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import GlobalStyle from 'components/Common/GlobalStyle';
+import React, { FunctionComponent } from "react"
+import styled from "@emotion/styled"
+import { Link } from "gatsby"
+import GlobalStyle from "components/Common/GlobalStyle"
 
 const NotFoundPageWrapper = styled.div`
   display: flex;
@@ -9,16 +9,16 @@ const NotFoundPageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-`;
+`
 
 const NotFoundText = styled.div`
   font-size: 150px;
   font-weight: 800;
 
   @media (max-width: 768px) {
-    font-size: 100px;
+    font-size: 70px;
   }
-`;
+`
 
 const NotFoundDescription = styled.div`
   font-size: 25px;
@@ -28,7 +28,7 @@ const NotFoundDescription = styled.div`
   @media (max-width: 768px) {
     font-size: 20px;
   }
-`;
+`
 
 const GoToMainButton = styled(Link)`
   margin-top: 30px;
@@ -38,7 +38,7 @@ const GoToMainButton = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
 const NotFoundPage: FunctionComponent = function () {
   return (
@@ -51,7 +51,7 @@ const NotFoundPage: FunctionComponent = function () {
       </NotFoundDescription>
       <GoToMainButton to="/">메인으로</GoToMainButton>
     </NotFoundPageWrapper>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage

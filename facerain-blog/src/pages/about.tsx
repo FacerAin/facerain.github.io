@@ -4,11 +4,13 @@ import { Link } from "gatsby"
 import GlobalStyle from "components/Common/GlobalStyle"
 import { AiOutlineMail, AiOutlineGithub, AiOutlineHome } from "react-icons/ai"
 
-const NotFoundPageWrapper = styled.div`
+const AboutPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  @media (max-width: 768px) {
+    width: 100vw;
+  }
 `
 
 const MainAreaWrapper = styled.div`
@@ -34,6 +36,9 @@ const ProjectsAreaWrapper = styled.div`
   align-items: center;
   height: 30vh;
   margin-bottom: 100px;
+  @media (max-width: 768px) {
+    margin-top: 100px;
+  }
 `
 
 const ContactAreaWrapper = styled.div`
@@ -52,9 +57,15 @@ const ContactAreaItemWrapper = styled.div`
 
 const ContactAreaItem = styled(Link)`
   padding: 30px;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `
 const ContactAreaMailItem = styled.a`
   padding: 30px;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `
 const MainHeaderText = styled.div`
   padding-left: 40px;
@@ -67,7 +78,7 @@ const MainHeaderText = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
   @media (max-width: 768px) {
-    font-size: 50px;
+    font-size: 25px;
   }
 `
 
@@ -79,10 +90,16 @@ const ImpactText = styled.div`
   margin-top: 20px;
   margin-bottom: 30px;
   font-weight: 800;
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `
 const DescriptionText = styled.div`
   font-size: 20px;
   text-align: center;
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `
 
 const UserNameText = styled.div`
@@ -97,7 +114,7 @@ const MainLinkText = styled(Link)`
   padding: 5px;
   text-decoration: underline;
   @media (max-width: 768px) {
-    font-size: 35px;
+    font-size: 20px;
   }
 `
 
@@ -106,7 +123,7 @@ const MailLinkText = styled.a`
   padding: 5px;
   text-decoration: underline;
   @media (max-width: 768px) {
-    font-size: 35px;
+    font-size: 20px;
   }
 `
 
@@ -114,13 +131,13 @@ const SubHeaderText = styled.div`
   font-size: 35px;
   font-weight: 600;
   @media (max-width: 768px) {
-    font-size: 35px;
+    font-size: 20px;
   }
 `
 
 const NotFoundPage: FunctionComponent = function () {
   return (
-    <NotFoundPageWrapper>
+    <AboutPageWrapper>
       <GlobalStyle />
       <MainAreaWrapper>
         <MainHeaderText>Growth Is All I need</MainHeaderText>
@@ -172,7 +189,7 @@ const NotFoundPage: FunctionComponent = function () {
           </ContactAreaMailItem>
         </ContactAreaItemWrapper>
       </ContactAreaWrapper>
-    </NotFoundPageWrapper>
+    </AboutPageWrapper>
   )
 }
 
