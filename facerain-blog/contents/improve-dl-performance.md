@@ -1,6 +1,6 @@
 ---
 date: "2022-07-31"
-title: "딥러닝 모델 성능 개선하는 법 (캐글과 데이콘 팁)"
+title: "딥러닝 모델 성능 개선하는 법 (캐글 Tip!)"
 categories: ["Tip", "NLP"]
 summary: "딥러닝 모델의 성능을 개선하는 방법을 알아봅시다."
 thumbnail: "./improve-dl-performance/th.jpg"
@@ -248,4 +248,4 @@ hyperparameter란 모델의 파라미터(weight, bias)를 결정하기 위한 �
 이외에도 **앙상블(Ensemble)**, **Cross Validation** 등 성능을 향상시키기 위한 다양한 방법들이 있습니다. 이번 기회를 통해 보다 딥러닝을 깊게 이해하고 실력을 한층 쌓을 수 있는 좋은 기회가 되리라 확신합니다 :)
 
 ## Reference
-- 본문 중 기재
+- 본문 중 참고하면 좋은 글에 기재하였습니다 :)
