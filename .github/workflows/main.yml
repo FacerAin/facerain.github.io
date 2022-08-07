@@ -42,7 +42,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
         #  port: ${{ secrets.PORT }} # default : 22
           script: |
             cd ${{ secrets.DEPLOY_PATH }} && git pull
