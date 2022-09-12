@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-02-20"
 title: "[논문 리뷰] Attention is All You Need"
 categories: ["NLP", "Paper"]

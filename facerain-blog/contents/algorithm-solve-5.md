@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-05-03"
 title: "[알고리즘 문제 풀이] 백준 14889번 스타트와 링크"
 categories: ["Algorithm"]

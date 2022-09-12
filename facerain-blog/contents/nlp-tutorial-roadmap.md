@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2021-11-26"
 title: "[5분 NLP] NLP 공부 시작하기"
 categories: ["NLP", "Tip"]

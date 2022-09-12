@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: '2021-12-12'
 title: '[Leetcode] Increasing Triplet Subsequence'
 categories: ['Algorithm']

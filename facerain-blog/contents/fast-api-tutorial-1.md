@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2021-08-21"
 title: "Fast API 10분 튜토리얼 #1) Fast API 시작하기"
 categories: ["Web", "Development", "Tutorial"]

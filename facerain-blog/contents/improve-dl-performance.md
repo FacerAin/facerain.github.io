@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-07-31"
 title: "딥러닝 모델 성능 개선하는 법 (캐글 Tip!)"
 categories: ["Tip", "NLP"]

@@ -1,17 +1,6 @@
-import React, { FunctionComponent, useState } from "react"
-import SideMenu from "components/Common/SideMenu"
+import React, { FunctionComponent } from "react"
 import styled from "@emotion/styled"
-import { BsList, BsX } from "react-icons/bs"
 import { Link } from "gatsby"
-
-const SideMenuButton = styled.div`
-  z-index: 100;
-  place-items: center;
-  display: grid;
-  &:hover {
-    cursor: pointer;
-  }
-`
 
 const HeaderWrapper = styled.div`
   z-index: 9;
@@ -54,11 +43,6 @@ const TitleItem = styled(Link)`
 `
 
 const Header: FunctionComponent = function () {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggleSideMenu = () => {
-    setIsOpen(!isOpen)
-  }
 
   return (
     <>

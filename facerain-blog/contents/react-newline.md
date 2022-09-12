@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2021-08-29"
 title: "[TIP] React에서 텍스트 줄바꿈하는 간단한 방법"
 categories: ["Tip", "Web"]

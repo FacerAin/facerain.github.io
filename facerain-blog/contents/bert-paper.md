@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-02-27"
 title: "[논문 리뷰] BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
 categories: ["NLP", "Paper"]

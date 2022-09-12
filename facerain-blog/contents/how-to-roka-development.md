@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: '2021-08-15'
 title: '사이버 지식 정보방(AKA.사지방)에서 개발하기'
 categories: ['Tip', 'Development']

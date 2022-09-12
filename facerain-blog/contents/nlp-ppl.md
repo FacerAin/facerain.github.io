@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-01-23"
 title: "[5분 NLP] 언어 모델 평가 지표 PPL 알아보기"
 categories: ["NLP"]

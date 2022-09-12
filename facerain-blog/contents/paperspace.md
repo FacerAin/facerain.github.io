@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2021-10-04"
 title: "Colab 상위호환? Paperspace Gradient 알아보기"
 categories: ["Tip", "Development"]

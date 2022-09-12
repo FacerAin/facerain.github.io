@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: '2021-09-11'
 title: '[Tip] Ubuntu 20.04 Swap 메모리 설정하기'
 categories: ['Tip', 'Development']

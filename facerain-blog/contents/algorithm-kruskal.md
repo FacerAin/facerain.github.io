@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-02-13"
 title: "[알고리즘 정리] 크루스칼(Kruskal) 알고리즘"
 categories: ["Algorithm"]

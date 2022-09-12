@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-03-27"
 title: "[웹 API 디자인] 직관적인 표현 사용하기"
 categories: ["Tip", "Development", "Web"]

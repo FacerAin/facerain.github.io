@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-03-06"
 title: "머신러닝/딥러닝 논문 읽기 by Andrew Ng"
 categories: ["Tip", "NLP", "Paper"]

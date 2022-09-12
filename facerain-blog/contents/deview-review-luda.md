@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2021-12-18"
 title: "오픈 도메인 챗봇 루다(LUDA)는 어떻게 만들어졌을까?"
 categories: ["Review", "NLP"]

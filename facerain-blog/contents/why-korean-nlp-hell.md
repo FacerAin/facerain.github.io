@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-05-22"
 title: "한국어 NLP는 왜 어려울까?"
 categories: ["NLP", "Tip"]

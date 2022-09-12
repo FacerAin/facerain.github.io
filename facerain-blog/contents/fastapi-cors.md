@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2021-10-26"
 title: "[Tip] FastAPI 서버에서 CORS 이슈 해결하기"
 categories: ["Web", "Development", "Tip"]

@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: "2022-06-05"
 title: "[논문 리뷰] Improving Language Understanding by Generative Pre-Training"
 categories: ["NLP", "Paper"]

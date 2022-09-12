@@ -1,4 +1,5 @@
 ---
+isTIL: false
 date: '2021-09-12'
 title: 'Nginx로 FastAPI 배포하기 (Feat. Gunicorn)'
 categories: ['Web', 'Development']
