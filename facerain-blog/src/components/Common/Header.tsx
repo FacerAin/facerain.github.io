@@ -17,16 +17,34 @@ const HeaderWrapper = styled.div`
   z-index: 9;
   display: flex;
   width: 100vw;
-  height: 50px;
+  height: 8vh;
   background-color: black;
   position: fixed;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+`
+
+const CategoryList = styled.div`
+  z-index: 50;
+  width: 30vw;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`
+
+const CategoryItem = styled(Link)`
+  z-index: 50;
+  color: white;
+  &:hover {
+    color: white;
+  }
+
 `
 
 const TitleItem = styled(Link)`
   z-index: 50;
-  width: 70px;
+  width: 5vw;
   height: 35px;
   color: white;
   font-size: 30px;
@@ -45,16 +63,12 @@ const Header: FunctionComponent = function () {
   return (
     <>
       <HeaderWrapper>
-        <SideMenuButton onClick={toggleSideMenu}>
-          {isOpen ? (
-            <BsX size={50} color="black" />
-          ) : (
-            <BsList size={50} color="white" />
-          )}
-        </SideMenuButton>
-        <SideMenu active={isOpen} />
-        <TitleItem to="/">_FacerAin</TitleItem>
-        <TitleItem></TitleItem>
+        <TitleItem to="/">FacerAin</TitleItem>
+        <CategoryList>
+          <CategoryItem to="/posts/?category=All">Posts</CategoryItem>
+          <CategoryItem to="/projects/">TIL</CategoryItem>
+          <CategoryItem to="/about">About</CategoryItem>
+        </CategoryList>
       </HeaderWrapper>
     </>
   )
