@@ -50,7 +50,7 @@ const Header: FunctionComponent = function () {
         <TitleItem to="/">FacerAin</TitleItem>
         <CategoryList>
           <CategoryItem to="/posts/?category=All">Posts</CategoryItem>
-          <CategoryItem to="/projects/">TIL</CategoryItem>
+          <CategoryItem to="/til/?category=All">TIL</CategoryItem>
           <CategoryItem to="/about">About</CategoryItem>
         </CategoryList>
       </HeaderWrapper>

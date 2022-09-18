@@ -67,6 +67,7 @@ const PostsPage: FunctionComponent<PostsPageProps> = function ({
       ? "ALL"
       : parsed.category
 
+
   const categoryList = useMemo(
     () =>
       edges.reduce(
@@ -122,8 +123,8 @@ export const queryPostsPage = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+    allMarkdownRemark (
+      sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }, filter: {frontmatter: {isTIL: {eq: false}}}
     ) {
       edges {
         node {
@@ -134,9 +135,10 @@ export const queryPostsPage = graphql`
           frontmatter {
             title
             summary
+            isTIL
             date(formatString: "YYYY.MM.DD.")
             categories
-            thumbnail {
+            thumbnail { 
               childImageSharp {
                 fluid(
                   maxWidth: 768

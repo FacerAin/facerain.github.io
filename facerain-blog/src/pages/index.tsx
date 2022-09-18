@@ -95,7 +95,7 @@ export const queryPostList = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+		sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }, filter: {frontmatter: {isTIL: {eq: false}}}
     ) {
       edges {
         node {

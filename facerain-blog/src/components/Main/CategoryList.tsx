@@ -17,6 +17,7 @@ export interface CategoryListProps {
 	categoryList: {
 		[key: string]: number;
 	};
+	isTil: Boolean
 }
 
 
@@ -35,8 +36,8 @@ const CategoryListWrapper = styled.div`
 
 
 const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
-  <Link {...props} />
-))<CategoryItemProps>`
+	<Link {...props} />
+)) <CategoryItemProps>`
   margin-right: 20px;
   padding: 5px 0;
   font-size: 18px;
@@ -56,12 +57,17 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
 const CategoryList: FunctionComponent<CategoryListProps> = function ({
 	selectedCategory,
 	categoryList,
+	isTil
 }) {
+	let categoryLinkPrefix = '/posts/?category='
+	if (isTil) {
+		categoryLinkPrefix = '/til/?category='
+	}
 	return (
 		<CategoryListWrapper>
 			{Object.entries(categoryList).map(([name, count]) => (
 				<CategoryItem
-					to={`/posts/?category=${name}`}
+					to={categoryLinkPrefix + name}
 					active={name == selectedCategory}
 					key={name}
 				>
