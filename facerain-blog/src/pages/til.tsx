@@ -114,7 +114,7 @@ const TilPage: FunctionComponent<TilPageProps> = function ({
     >
       <TilPageWrapper>
         <HeaderText>TIL :)</HeaderText>
-        <Heatmap startDate={new Date('2022-09-18')} endDate={new Date('2023-09-19')} values={dateList} />
+        <Heatmap startDate={new Date('2022-09-17')} endDate={new Date('2023-09-19')} values={dateList} />
         <CategoryList
           categoryList={categoryList}
           selectedCategory={selectedCategory}
