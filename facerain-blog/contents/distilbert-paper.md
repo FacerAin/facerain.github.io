@@ -1,6 +1,6 @@
 ---
 isTIL: false
-date: "2022-02-27"
+date: "2022-09-19"
 title: "[논문 리뷰] DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter"
 categories: ["NLP", "Paper"]
 summary: "DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter 논문을 리뷰합니다."
@@ -41,7 +41,7 @@ thumbnail: "./distilbert-paper/th.jpg"
 ![2](./distilbert-paper/2.png "soft-max 함수 temperature 비교")  
 [이미지 출처](https://hackernoon.com/softmax-temperature-and-prediction-diversity)  
 
-해당 연구에서는 아래의 3가지 loss를 최소화 하는 방향으로 학습이 진행됩니다.
+**해당 연구에서는 아래의 3가지 loss를 최소화 하는 방향으로 학습이 진행됩니다.**
 
 - Distillation Loss
     - 소프트 타깃과 소프트 예측 사이의 교차 엔트로피 손실 (T > 1)
@@ -63,11 +63,11 @@ Student Model은 아래와 같이 구성됩니다.
 
 - BERT에서 token-type embedding과 pooler를 제거
 - 레이어의 개수를 2배 감소
-    - hidden state의 차원을 줄이는 대신 레이어의 수를 줄인 이유는 최근 Transfomer 모델들은 고도로 최적화된 연산 라이브러리를 사용하기 때문에 hidden state의 차원을 줄이는 것은 계산 효율성 향상에 큰 의미가 없다고 합니다. 따라서 연구팀은 레이어의 개수를 줄이는 방향으로 진행했습니다.
+    - hidden state의 차원을 줄이는 대신 레이어의 수를 줄인 이유는 최근 Transfomer 모델들은 고도로 최적화된 연산 라이브러리를 사용하기 때문에 **hidden state의 차원을 줄이는 것은 계산 효율성 향상에 큰 의미가 없다고 합니다. 따라서 연구팀은 레이어의 개수를 줄이는 방향으로 진행했습니다.**
 
 ### Student Initilaization
 
-앞서 Teacher 모델과 Student 모델의 차원은 같게 설정하였습니다. 따라서 Teacher Model로부터 Weight를 가져와서 Student 모델에 사용하였습니다. (Teacher Model의 레이어가 Student보다 2배 많습니다. 따라서 레이어 두개 중 하나를 가져왔다고 합니다.)
+앞서 Teacher 모델과 Student 모델의 차원은 같게 설정하였습니다. **따라서 Teacher Model로부터 Weight를 가져와서 Student 모델에 사용하였습니다.** (Teacher Model의 레이어가 Student보다 2배 많습니다. 따라서 레이어 두개 중 하나를 가져왔다고 합니다.)
 
 ### Distillation
 
@@ -90,7 +90,7 @@ downstream task에서도 기존 BERT와 비슷한 성능을 보여주었습니�
 
 ![5](./distilbert-paper/5.png "DistilBERT 성능")  
 
-마지막으로 기존 BERT 모델과 비교했을때 40% 가까이 적은 파라미터로 inference에서 60% 빠른 속도를 낼 수 있었다고 합니다.
+**마지막으로 기존 BERT 모델과 비교했을때 40% 가까이 적은 파라미터로 inference에서 60% 빠른 속도를 낼 수 있었다고 합니다.**
 
 위와 같이 모델의 사이즈를 줄이면서 처리 속도를 높인 결과 edge device(스마트폰, 개인 PC)에도 모델을 활용할 수 있게 되었습니다. 그 예로, Iphone 7 Plus에서 토크나이징 과정은 제외하고, 기존 BERT보다 71% 빠르게 처리가 가능하고, 총 모델 용량이 207MB이 가능했다고 합니다.  
 
