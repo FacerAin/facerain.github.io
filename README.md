@@ -13,5 +13,4 @@ Gatsby를 사용하여 개발한 블로그입니다.
 -  React 기반 Static Web Page
 -  게시물 태그
 -  Disqus 댓글
--  Infinite Scroll
 -  CI/CD Using Github Action
