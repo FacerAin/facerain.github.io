@@ -141,10 +141,10 @@ Bert 모델의 Fine-tuning은 비교적 단순합니다. **Task에 알맞는 입
 
 연구팀은 11개의 NLP Task에 대하여 BERT 파인튜닝을 수행하였습니다.
 
-1. **GLEU(General Language Understanding Evaluation)**
+1. **GLUE(General Language Understanding Evaluation)**
 
 - 모델의 자연어 이해 능력을 평가하기 위해 9가지 Task로 구성된 벤치마크입니다.
-- GLEU에 대한 자세한 설명은 [글](https://huffon.github.io/2019/11/16/glue/)을 참고해주세요.
+- GLUE에 대한 자세한 설명은 [글](https://huffon.github.io/2019/11/16/glue/)을 참고해주세요.
 
 2. **SQuAD (Stanford Question Answering Dataset)**
 
