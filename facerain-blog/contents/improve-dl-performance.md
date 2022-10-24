@@ -59,9 +59,9 @@ Bias와 Variance는 모델의 상태를 나타내는 척도 중 하나입니다.
 
 ![DL Cycle](./improve-dl-performance/2.png "Variance and Bias with Training Error")
 
-위 그래프의 왼쪽을 보면 **Training Error가 높습니다.** 이는 모델의 예측 값이 정답 값과 동떨어져있다는 것을 의미합니다. 즉, **모델의 Variance가 높다는 뜻**입니다.
+위 그래프의 왼쪽을 보면 **Training Error가 높습니다.** 이는 모델의 예측 값이 정답 값과 동떨어져있다는 것을 의미합니다. 즉, **모델의 Bias가 높다는 뜻**입니다.
 
-그래프의 오른쪽에는 **Training Error와 Validation Error의 차이가 크게 나는 것**을 확인할 수 있습니다. 이는 예측 값들이 흩어져 있어 **모델의 Bias가 높다는  것을 의미**합니다.
+그래프의 오른쪽에는 **Training Error와 Validation Error의 차이가 크게 나는 것**을 확인할 수 있습니다. 이는 예측 값들이 흩어져 있어 **모델의 Variance가 높다는  것을 의미**합니다.
 
 지금까지 모델의 Variance와 Bias를 분석하는 방법에 대해 알아보았습니다. **이제 이들을 바탕으로 모델의 성능을 어떻게 향상시킬 수 있을까요?** 다음과 같은 방법이 있습니다.
 
