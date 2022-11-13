@@ -64,7 +64,7 @@ thumbnail: "./pythonic-code-guide/th.jpg"
         1. `map = []`, `zip = …` `sort = …` `len = 5`
         2. 하지만 나중에 ~~대참사~~ 문제가 날 수 있으니 되도록 신경써서 피하도록 네이밍을 주의해주세요!
 
-# 3. import 구성하기
+## 3. import 구성하기
 파이썬에서는 통상 다양한 라이브러리를 import하여 사용합니다.
 
 따라서 import 구문을 잘 작성하여야 코드를 이해하기 쉬워집니다.
