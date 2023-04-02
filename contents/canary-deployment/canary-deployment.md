@@ -96,7 +96,7 @@ thumbnail: "th.jpg"
 ### 실제 기업들은 어떻게 활용하고 있을까?
 지금까지 무중단 배포의 방식에 대해 알아보았는데요,  
 
-실제 기업들에서는 카나리 배포를 어떻게 활용하고 있는지
+**실제 기업들에서는 카나리 배포를 어떻게 활용** 하고 있는지
 기업들의 테크블로그 포스트와 함께 살펴보겠습니다.  
 
 카나리 배포에서 핵심은 구 버전과 신 버전 사이의 트래픽의 양을 제어하는 것입니다. 그리고 이를 위한 기술은 대표적으로 아래와 같습니다.  
@@ -115,13 +115,14 @@ thumbnail: "th.jpg"
 - **Istio**를 활용한 카나리 배포 수행
 - **Spinnaker**를 활용한 pipeline 생성  
 3. 데브시스터즈 [링크](https://tech.devsisters.com/posts/blue-green-canary-deployment/)
-- Blue-Green과 Canary 기법을 함께 활용.
+- **Blue-Green과 Canary 기법을 함께 활용.**
 - Blue-Green 전략을 바탕으로 구 서버와 같은 스펙으로 신 서버를 미리 프로비저닝
 - Canary 전략을 바탕으로 신 서버에 조금의 트래픽을 흘려 검증 과정을 거친 후 모든 트래픽을 한번에 옮긴다.
 - **Istio**를 활용한 traffic shifting
 
-세 기업 모두 공통적로 **Istio**를 활용하여 신 버전과 구 버전 사이의 **traffic shifting**을 수행하였습니다.
-또한 데브시스터스의 경우 두 가지 배포 방식을 함께 사용하여 각 배포 방식의 장단점을 보완하는 점이 인상적이었습니다.
+세 기업 모두 공통적으로 **Istio**를 활용하여 신 버전과 구 버전 사이의 **traffic shifting**을 수행하였습니다.  
+
+또한 데브시스터스의 경우 **두 가지 배포 방식(Blue-Green, Canary)을 함께 사용** 하여 각 배포 방식의 장단점을 보완하는 점이 인상적이었습니다.
 
 ### 근데 Istio는 또 뭐고..?
 위 세 블로그에서 공통적으로 Istio가 등장하는데, 이것은 무슨 기술일까요?
@@ -183,11 +184,11 @@ Istio [공식 사이트](https://istio.io/)에 따르면 아래와 같이 정의
 
 그리고 [spinnaker](https://spinnaker.io/)라는  continuous delivery platform을 사용하여 baseline과 canary cluster를 관리합니다.  
 
-예를 들어 canary analysis 결과 신 버전의 서비스에 문제가 없다는 것이 확인되면, production cluster에 신 버전을 릴리즈를 수행합니다.  
+예를 들어 **canary analysis 결과 신 버전의 서비스에 문제가 없다는 것이 확인되면, production cluster에 신 버전을 릴리즈를 수행**합니다.  
 반면에 문제가 발생한다면 spinnaker는 canary process를 중단하고, 모든 트래픽을 기존 버전의 production cluster로 향하게 하는 것이죠.  
 
-| Q. 잠깐! 굳이 baseline cluster가 없어도 되는거 아닌가요? canary cluster와 production cluster만 있어도 될 것 같은데요?  
-| A. production cluster에 유입되는 트래픽의 양이나, 서비스 수명이 달라 canary cluster와의 직접적인 비교가 어렵습니다. 따라서 canary cluster와 유사한 환경의 baseline cluster를 만들어 서비스에 문제가 있는지 비교를 하는 것입니다. 
+> Q. 잠깐! 굳이 baseline cluster가 없어도 되는거 아닌가요? canary cluster와 production cluster만 있어도 될 것 같은데요?  
+> A. production cluster에 유입되는 트래픽의 양이나, 서비스 수명이 달라 canary cluster와의 직접적인 비교가 어렵습니다. 따라서 canary cluster와 유사한 환경의 baseline cluster를 만들어 서비스에 문제가 있는지 비교를 하는 것입니다. 
 
 
 그렇다면 여기서 신 버전의 canary cluster의 서비스가 문제가 없는지는 어떻게 확인할 수 있을까요?  
@@ -200,7 +201,7 @@ netflix도 기존에는 엔지니어들이 **canary 서버의 메트릭 (HTTP st
 
 
 ### Netflix Kayenta 살펴보기
-앞서 살펴봤듯이 kayenta는 automated canary analysis platform으로 baseline과 canary 버전 사이의 위험 요소를 자동으로 평가해주는 플랫폼입니다.
+앞서 살펴봤듯이 **kayenta** 는 automated canary analysis platform으로 **baseline과 canary 버전 사이의 위험 요소를 자동으로 평가해주는 플랫폼**입니다.
 spinnaker에 intergate 되어 있어 누구나 서비스에 편하게 적용할 수 있습니다.  
 
 kayenta는 두 가지 단계로 구성된다고 합니다.  
@@ -234,14 +235,14 @@ feature toggle은 단어 그대로 어떤 서비스의 feature를 **코드의 �
 그렇다면 카나리 배포와는 어떤 차이점이 있는 걸까요?
 카나리 배포는 **인프라 레벨에서 트래픽과 서비스를 다루기 때문에, 대상 유저와 기능을 세밀하게 조정하기 어렵다는 단점**이 있습니다.  
 
-따라서 피쳐 토클을 사용하면 아래와 같은 이점을 얻을 수 있습니다
+따라서 feature toggle을 사용하면 **아래와 같은 이점** 을 얻을 수 있습니다
 
 - 보다 세밀하고 효과적인 A/B 테스트 가능
 - 배포에 이상이 있을 때, 빠르게 릴리즈 취소
 - 배포를 미리 해놓고, 릴리즈는 나중에 간편하게
 - 일부 지역의 유저에게만 기능 릴리즈
 
-실제로 피쳐 토클을 사용한 기업 사례도 있으니 한번 살펴보시는 것을 추천합니다.
+실제로 **faeture toggle을 사용한 기업 사례** 도 있으니 한번 살펴보시는 것을 추천합니다.
 - [맘시터, 피쳐 토글 - 빠르고 안정적인 릴리즈를 향한 도약](https://tech.mfort.co.kr/blog/2022-11-24-feature-toggle/) 
 - [우아한 형제들, 실험과 기능플래그를 위한 실험플랫폼 구축하기](https://techblog.woowahan.com/9935/)
 
