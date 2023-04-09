@@ -32,13 +32,17 @@ https://www.docker.com/get-started/
 ![2](2.png "Docker Desktop에서 WSL2 설정을 확인해주세요.")
 
 ## Kubernetes 설치
-아래 사이트에서 아래와 같이 설치를 진행해주세요.
+아래 사이트에서 k8s 설치를 진행해주세요.
+
+https://minikube.sigs.k8s.io/docs/start/
+
+![3](3.png "minikube 설치를 진행해주세요.")
 
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 ```  
-![3](3.png "minikube 설치를 진행해주세요.")
+
 
 설치가 완료된 후, 아래 명령어로 쿠버네티스가 정상적으로 실행되면 성공입니다!
 ```
