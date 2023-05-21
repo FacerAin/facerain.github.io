@@ -24,7 +24,7 @@ const Footer: FunctionComponent = function () {
     <FooterWrapper>
       <div>
         <br />© 2021 Designed By{" "}
-        <LinkText to="https://facerain.club/about/">Yongwoo Song</LinkText>,
+        <LinkText to="https://github.com/FacerAin">Yongwoo Song</LinkText>,
         Powered By Gatsby.
       </div>
     </FooterWrapper>
