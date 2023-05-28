@@ -65,16 +65,18 @@ Interning이 동작하는 특정 조건은 파이썬 버전이나 환경에 따�
 
 ### Object Interning 사용하는 법
 
-앞서 Interning이 동작하는 조건이 있다고 했습니다.
+앞서 **Interning이 동작하는 조건**이 있다고 했습니다.
 [링크](https://medium.com/@bdov_/https-medium-com-bdov-python-objects-part-iii-string-interning-625d3c7319de) 에서는 해당 조건을 아래와 같이 설명하고 있습니다.
 1. 문자열은 컴파일 단계에서 상수 값이어야 한다.
 2. 문자열은 20자 초과이거나 constant folding이 아니어야 한다.
 3. 문자열은 아스키 문자, 숫자, 밑줄로만 구성되어 있어야 한다.
 
-위에서 constant folding이란 "John" + "Snow"와 같이 연산자로 이어진 문자열을 의미합니다.
-여기서 파이썬은 꼭 문자열이 아닌 object에 대해서도 interning을 수행할 수 있다고 합니다. 사실 Object Interning 조건은 파이썬의 버전과 환경에 따라 자신의 환경에 맞게 찾아보시는 것을 추천드립니다!
+위에서 **constant folding**이란 "John" + "Snow"와 같이 연산자로 이어진 문자열을 의미합니다.  
 
-또한 아래 코드처럼 개발자가 직접 interning할 object를 지정할 수도 있답니다.
+
+또한 파이썬은 꼭 문자열이 아닌 object에 대해서도 interning을 수행할 수 있다고 합니다. 사실 Object Interning 조건은 파이썬의 버전과 환경에 따라 다르니 **자신의 환경에 맞게 찾아보시는 것**을 추천드립니다!
+
+또한 아래 코드처럼 개발자가 **직접 interning할 object를 지정**할 수도 있답니다.
 
 ```
 from sys import intern
@@ -84,6 +86,7 @@ b = "John Snow"
 ```
 
 이번 시간에는 Object Interning에 대해서 알아보았습니다.
-Object interning에 대해 좀 더 자세히 알아보고 싶으신 분들은 [링크](https://nephtyws.github.io/python/interning/)의 글도 추천드립니다! 구체적으로 interning이 어떻게 동작하는지 잘 설명되어 있습니다 :)  메모리 관리는 대용량 트래픽과 데이터 처리에서 중요한 주제인데요, 이번 기회에 각 언어별 Interning 기법에 관심을 가져보시는 것도 추천드립니다 👍👍
+Object interning에 대해 좀 더 자세히 알아보고 싶으신 분들은 [링크](https://nephtyws.github.io/python/interning/)의 글도 추천드립니다! 구체적으로 interning이 어떻게 동작하는지 잘 설명되어 있습니다 :)    
+**메모리 관리는 대용량 트래픽과 데이터 처리에서 중요한 주제**인데요, 이번 기회에 각 언어별 Interning 기법에 관심을 가져보시는 것도 추천드립니다 👍👍
 
 감사합니다 😊
