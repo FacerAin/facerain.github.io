@@ -3,7 +3,7 @@
 [![React build](https://github.com/FacerAin/facerain-blog/actions/workflows/main.yml/badge.svg)](https://github.com/FacerAin/facerain-blog/actions/workflows/main.yml)  
 
 
-[Link is Here!]([https://facerain.club](https://facerain.github.io/facerain-blog/))  
+[Link is Here!](https://facerain.github.io/)
 
 ## Introduction
 Gatsby를 사용하여 개발한 블로그입니다.
