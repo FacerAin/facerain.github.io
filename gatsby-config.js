@@ -3,7 +3,7 @@ module.exports = {
     title: `FacerAin's Dev-Space`,
     description: `FacerAin의 개발 공간입니다.`,
     author: `FacerAin`,
-    siteUrl: `https://facerain.club`,
+    siteUrl: `https://facerain.github.io/facerain-blog`,
   },
   plugins: [
     `gatsby-plugin-sitemap`,
@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: `G-5Z08N862E7`, // 측정 ID
+        trackingId: `G-GKZVVVCLZ9`, // 측정 ID
         head: false, // head에 tracking script를 넣고 싶다면 true로 변경
         anonymize: true,
       },
@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-canonical-urls",
       options: {
-        siteUrl: "https://facerain.club/",
+        siteUrl: "https://facerain.github.io/facerain-blog/",
         stripQueryString: true,
       },
     },
@@ -42,8 +42,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: `https://facerain.club`,
-        sitemap: `https://facerain.club/sitemap.xml`,
+        host: `https://facerain.github.io/facerain-blog`,
+        sitemap: `https://facerain.github.io/facerain-blog/sitemap.xml`,
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
