@@ -51,7 +51,7 @@ const Header: FunctionComponent = function () {
         <CategoryList>
           <CategoryItem to="/posts/?category=All">Posts</CategoryItem>
           <CategoryItem to="/til/?category=All">TIL</CategoryItem>
-          <CategoryItem to="https://facerain.notion.site/RESUME-2023-2-ff535d450a534d7d9f32412eb72b1e53">About</CategoryItem>
+          <CategoryItem to="https://github.com/FacerAin">Github</CategoryItem>
         </CategoryList>
       </HeaderWrapper>
     </>
