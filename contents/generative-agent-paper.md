@@ -236,12 +236,162 @@ take a few minutes to clean up his workspace.
 이처럼 재귀적으로 plan을 세부화시켜 나가면서 planning을 수행함으로써 agent는 시간이 흘러도 일관적이고 타당한 행동을 할 수 있게 됩니다.
 
 ### Reacting
+Agent 들은 Plan에 짜여진 일들뿐만 아니라 주변 환경에서 일어나는 일들을 관찰하고 반응할 수 있습니다. 어떻게 이것이 가능할까요?
+
+우선 time step마다 주변에서 일어나는 일들을 관찰 (observation) 합니다. 그리고 관찰한 내용들을 자연어로 메모리 스트림에 저장합니다. 그리고 이러한 관찰들을 토대로 기존 plan을 계속해서 수행할지, 또는 반응(react)할지 결정합니다.
+
+프롬프트는 아래와 같습니다.
+```
+[Agent’s Summary Description]
+It is February 13, 2023, 4:56 pm.
+John Lin’s status: John is back home early from
+work.
+Observation: John saw Eddy taking a short walk
+around his workplace.
+Summary of relevant context from John’s memory:
+Eddy Lin is John’s Lin’s son. Eddy Lin has been
+working on a music composition for his class. Eddy
+Lin likes to walk around the garden when he is
+thinking about or listening to music.
+Should John react to the observation, and if so,
+what would be an appropriate reaction?
+```
+가장 상단에는 Agent의 요약된 설명이 들어가고, 그 아래에는 현재 시간과 Agent의 상태, 그리고 관찰한 내용이 들어갑니다. 그리고 context summary에는 `"What is [observer]’s relationship with the [observed entity]?"` 와 `" “[Observed entity] is [action status of the observed entity]"` 라는 두 쿼리를 토대로 메모리에서 검색한 내용 그리고 이들의 답변을 요약한 내용이 들어갑니다.
+이를 통해 agent는 적절한 reaction을 생성할 수 있게 됩니다.
+
+출력 예시는 다음과 같습니다.
+```
+John could consider asking Eddy about
+his music composition project.
+```
+
+
+### Dialogue
+Agent 들은 서로 대화를 나눌 수 있습니다. 이때 대화에 사용되는 프롬프트는 앞서 살펴본 Reacting과 거의 유사하니, 자세한 설명은 생략하겠습니다!
+```
+[Agent’s Summary Description]
+It is February 13, 2023, 4:56 pm.
+Eddy Lin’s status: Eddy is taking a short walk
+around his workplace.
+Observation: John is initiating a conversation
+with Eddy.
+Summary of relevant context from Eddy’s memory:
+John Lin is Eddy Lin’s father. John Lin is caring
+and is interested to learn more about Eddy Lin’s
+school work. John Lin knows that Eddy Lin is
+working on a music composition.
+Here is the dialogue history:
+John: Hey Eddy, how’s the music composition project
+for your class coming along?
+How would Eddy respond to John?
+```  
+
+출력 결과는 다음과 같습니다.
+```
+“Hey Dad, it’s going well. I’ve been
+taking walks around the garden to clear my head and get some
+inspiration.”
+```
+
+## Sandbox Environment Implementation
+연구팀은 Phaser라는 웹 게임 개발 프레임워크를 사용하여 샌드박스 게임 환경을 구축했습니다. 서버와 클라이언트 간에 JSON을 주고받으며, 에이전트와 환경의 상호작용을 구현했습니다.
+
+그렇다면 에이전트는 어떻게 자연어로 샌드박스의 다양한 환경 (예: 부엌 안의 스토브)을 처리할 수 있을까요? 이를 위해 샌드박스 환경 내의 다양한 영역과 객체를 트리 형태로 표현했습니다. 예를 들어 "stove"가 "kitchen"의 하위 항목인 경우 "there is a stove in the kitchen"와 같이 변환됩니다.
+
+이 시스템에서는 두 가지 종류의 트리를 관리합니다. 전체 환경 트리와 개별 트리입니다. 전체 환경 트리에는 샌드박스 환경 전체의 영역과 객체가 포함되어 있고, 개별 트리에는 에이전트가 관찰한 영역과 객체만 포함됩니다. 다시 말해, 개별 트리는 전체 환경 트리에서 에이전트가 보고 경험한 부분만 가지고 있는 것입니다.
+
+이러한 트리를 어떻게 활용할 수 있을까요? 예를 들어, 에디라는 에이전트에게 다음 행동이 필요하다고 가정해보겠습니다.
+```
+take a short walk around his workspace:
+```
+
+그렇다면 우리는 전체 환경 트리의 루트부터 재귀적으로 모델에게 가장 적합한 영역을 찾도록 요청할 수 있습니다. 예를 들어 다음과 같이 프롬프트를 제공할 수 있습니다.
+
+```
+[Agent’s Summary Description]
+Eddy Lin is currently in The Lin family’s house:
+Eddy Lin’s bedroom: desk) that has Mei and John
+Lin’s
+bedroom, Eddy Lin’s bedroom, common room, kitchen,
+bathroom, and garden.
+Eddy Lin knows of the following areas: The Lin
+family’s house, Johnson Park, Harvey Oak Supply
+Store, The Willows Market and Pharmacy, Hobbs
+Cafe, The Rose and Crown Pub.
+* Prefer to stay in the current area if the
+activity can be done there.
+Eddy Lin is planning to take a short walk around
+his workspace. Which area should Eddy Lin go to?
+```
+
+위 출력의 결과가 아래와 같다고 가정해보겠습니다.
+```
+The Lin family’s house.
+```
+
+그러면 Lin family’s house의 하위 노드들을 바탕으로 계속 재귀적으로 요청하여 가장 적합한 영역을 찾아낼 수 있습니다. 결국은 다음과 같이 순회할 수 있는 것이죠.
+```
+The Lin family’s house: garden: house garden.
+```
+이후 찾아낸 영역을 바탕으로 전통적인 길찾기 알고리즘을 활용하여 우리는 클라이언트 상에 agent의 움직임을 구현할 수 있습니다.
+
+
+## Evaluation
+연구팀은 agent들이 그들의 경험과 기억을 바탕으로 적절하게 행동하는지를 평가하기 위해 크게 두 가지 단계로 평가를 수행했습니다.
+첫 번째는 controlled evaluation이고, 두 번째는 end-to-end evaluation입니다.
+
+Controlled Evaluation으로 Agent가 적절하게 행동하는지 평가하기 위해 연구팀은 한국어로 "인터뷰"를 진행했습니다.
+평가한 항목은 아래와 같으며, 2일 간의 시뮬레이션을 마친 agent들에게 진행했습니다.
+- Self-knowledge
+- Memory
+- Plans
+- Reactions
+- Reflections
+
+그리고 인터뷰 결과는 100여 명의 인간 평가자가 평가하였습니다.
+
+예를 들어 자기 인식에 대한 인터뷰 예시는 아래와 같습니다.
+```
+• Give an introduction of yourself.
+Hello, my name is Klaus Mueller. I’m 20 years old and a
+student at Oak Hill College, studying sociology. I’m passionate about social justice and exploring different perspectives.
+Currently, I’m researching the effects of gentrification in
+low-income communities for a research paper.
+• What’s your occupation?
+I am a student studying sociology at Oak Hill College. I am
+currently writing a research paper on the effects of gentrification in low-income communities.
+• What is your interest?
+I’m interested in writing and research. I’m writing a research
+paper on the effects of gentrification in low-income communities, and I’m passionate about exploring different perspectives and analyzing different points of view.
+• Who do you live with?
+I live on my own.
+• Describe your typical weekday schedule in broad strokes.
+My typical weekday starts with me waking up at 7:00 am
+and preparing for the day ahead. After that, I usually go to
+the library to work on my research paper, taking breaks for
+lunch at Hobbs Cafe and a walk in the park. In the evening,
+I often return to the library until around 6:00 pm.
+```
+
+
+관련하여 ablation study 결과는 아래와 같습니다. 연구팀이 제안한 Reflection과 Plan, Observation 모델이 효과적으로 동작한 것을 확인할 수 있습니다.
+
+![9](generative-agent-paper/9.png)
+
+End-to-end Evaluation으로는 연구팀이 실제 에이전트의 생활을 추적하며 의도한 행동을 수행하는지 평가하였다고 합니다.
+
+![10](generative-agent-paper/10.png)
+
+
+## Discussions
+연구팀은 한계점으로 아래와 같은 내용들을 언급합니다.
+1. 비용 및 성능 문제  
+2일 동안 25 명의 에이전트를 시뮬레이션하는 데 gpt-3.5로 수 천 달러의 크레딧을 사용하는 등 상당한 비용과 시간이 들었습니다. 따라서 에이전트를 병렬화하거나 특별히 설계된 언어 모델을 사용하는 등의 개선이 필요합니다.
+2. 평가 및 벤치마크
+본 연구의 평가는 다소 적은 시뮬레이션 시간 그리고 인간 평가자를 사용했습니다. 따라서 에이전트의 행동을 보다 포괄적이고, 신뢰성 있게 평가하는 데 한계가 있었습니다. 따라서 테스트를 위한 엄격한 벤치마크 개발과 다양한 비교 실험 분석이 필요합니다.
+3. 견고성 (robustness)
+프롬프트 해킹, 메모리 해킹 (특정 프롬프트에 의해 기억이 조작되는 현상), 할루시네이션, 소수 집단에 대한 데이터 부족 등 LLM의 고질적인 문제점들이 발생할 여지가 남아있습니다.
+
+## 논문을 읽으며
 TBA
-
-
-
-
-
-
-
 
