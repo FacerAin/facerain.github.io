@@ -2,7 +2,7 @@
 isTIL: false
 date: "2024-01-14"
 title: "오픈소스를 통해 알아보는 Monkey Patch"
-categories: ["Tip"]
+categories: ["Tip", "Development"]
 summary: "오픈소스를 통해 알아보는 Monkey Patch 기법을 알아봅시다."
 thumbnail: "./opensource-monkeypatch/th.jpg"
 ---
@@ -78,7 +78,28 @@ Monkey Patch를 수행하는 코드는 다음과 같은데요.
 ```python
 client._client._client._pipeline.run = partial(patch_run, client)
 ```
-여기서 `partial`이라는 다소 생소한 함수가 등장합니다.  
-`functools.partial()` 은 **하나 이상의 인자가 이미 채워진 새 버전의 함수** 를 만들 때 사용하는 함수입니다. 다시 말하면 `client._client._client._pipeline.run`에 patch_run의 인자를 미리 채우고, 추가로 client라는 인자를 추가한 것이죠. 
+여기서 `partial`이라는 다소 생소한 함수가 등장합니다.   
+python의 `functools.partial()` 은 기존의 함수에서 일부 인자를 고정한 새로운 함수를 생성하는데 사용하는 함수입니다.  
+아래 코드 예시를 살펴보겠습니다.  
+
+```python
+from functools import partial
+
+# 일반 함수 사용
+def multiply(x, y):
+    return x * y
+
+double1 = partial(multiply, 2)
+print(double1(4))  # 출력: 8
+
+# 람다 함수 사용
+double2 = partial(lambda x, y: x * y, 2)
+print(double2(4))  # 출력: 8
+```
+partial을 통해 기존 multiply 함수에서 x 인자를 2로 고정한 double 함수를 생성한 것을 확인할 수 있습니다. 이를 통해 새로운 함수를 생성할 때 재사용성을 높일 수 있는 것이죠.
+
+위 PR의 사례에서는 partial을 활용하여 `client._client._client._pipeline.run`에서 `patch_run` 메서드를 호출할 때 호출한 `client` 인자를 **고정하여 전달** 할 수 있도록 하여, 코드의 재사용성을 높인 것이죠.  
+
+오늘은 오픈소스의 PR을 통해 monkey patch 기법에 대해 알아보았습니다. 앞으로도 오픈소스를 통해 새로운 기술과 개념들을 많이 배울 수 있으면 좋겠네요 😄
 
 
