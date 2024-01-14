@@ -4,7 +4,7 @@ date: "2024-01-14"
 title: "AI 모델에게 특정 기억을 잊게할 수는 없을까? - Unlearning"
 categories: ["Paper"]
 summary: "AI 모델에게 특정 기억을 잃게하는 Unlearning 기법을 소개합니다."
-thumbnail: "./generative-agent-paper/th.jpg"
+thumbnail: "./unlearning-introduction/th.jpg"
 ---
 
 > 모두의 연구소 PERSONA LAB에서 진행한 세미나의 내용들을 참고하여 정리하였습니다 😄 
