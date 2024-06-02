@@ -4,7 +4,7 @@ date: "2024-06-02"
 title: "Python 비동기 혼내주기 - 1편: 비동기란 뭔가요?"
 categories: ["Development", "Tip"]
 summary: "Python 비동기 혼내주기 - 1편: 비동기의 기본 개념에 대해 알아봅니다."
-thumbnail: "./python-async-1/th.png"
+thumbnail: "./python-async-1/th.jpg"
 ---
 
 ### 들어가며
