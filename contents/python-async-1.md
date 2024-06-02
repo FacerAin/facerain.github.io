@@ -20,13 +20,13 @@ Python 상에서 비동기 프로그래밍을 어떻게 할 수 있을지 함께
 
 도대체 비동기가 무엇이길래, AWS 기조 연설에서도 이렇게 강조하는 것 일까요?
 
-![1](python-async-1/1.png "2022 AWS re:invent Keynote 중")
+![1](./python-async-1/1.png "2022 AWS re:invent Keynote 중")
 
 
 간단하게 말하면, 동기는 일을 순서대로 처리하는 방식을 이야기하고,
 비동기란 앞의 일의 결과를 기다리지 않고, 다음 일을 시작하는 방식을 이야기합니다.
 
-![2](python-async-1/2.png "Synchronous VS Asynchronous")
+![2](./python-async-1/2.png "Synchronous VS Asynchronous")
 [이미지 출처](https://medium.com/@vivianyim/synchronous-vs-asynchronous-javascript-de4918e8ad62)  
 
 > Q. 비동기 = 병렬 처리?  
@@ -48,7 +48,7 @@ Python 상에서 비동기 프로그래밍을 어떻게 할 수 있을지 함께
 
 비동기를 사용하면 느슨하게 결합된 시스템 (loosely coupled system)을 만들 수 있다고 합니다.
 
-![3](python-async-1/3.png "2022 AWS re:invent Keynote 중")
+![3](./python-async-1/3.png "2022 AWS re:invent Keynote 중")
 
 
 시스템을 느슨하게 결합하면 아래 3가지 장점이 있다고 합니다.
