@@ -1,6 +1,6 @@
 ---
 isTIL: false
-date: "2024-07-16"
+date: "2024-07-15"
 title: "[논문 리뷰] Rethinking the Role of Token Retrieval in Multi-Vector Retrieval"
 categories: ["NLP", "Paper"]
 summary: "Rethinking the Role of Token Retrieval in Multi-Vector Retrieval 논문을 리뷰합니다."
