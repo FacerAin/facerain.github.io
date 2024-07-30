@@ -9,7 +9,7 @@ thumbnail: "th.jpg"
 
 이번 시간에는 **RAG와 Long-Context LLMs의 성능을 비교**하고, **두 방법을 혼합한 Self-Route를 제안**한 논문을 살펴봅니다. 최근에 출시된 Gemini 1.5와 같은 모델들은 Context window size가 1 Million에 달하는 등 매우 많은 토큰을 한 번에 입력 받을 수 있습니다. 이는 영문 소설 8권을 한 번에 입력할 수 있는 양입니다. 이러한 점을 활용해 별도의 Retrieval 과정 없이 Long-Context를 한 번에 입력하는 방법도 고려할 수 있게 되었습니다. 이를 통해 기존 RAG보다 높은 품질의 답변을 생성할 수 있습니다.
 
-하지만 긴 컨텍스트를 매번 입력으로 사용하면 token 비용이 늘어날 수밖에 없습니다. 연구팀은 이를 해결하고자 RAG와 LC (Long Context) LLMs의 장단점을 적절히 합친 Self-Route라는 방법을 제안합니다. 논문은 [링크](https://arxiv.org/abs/2406.13121)에서 확인할 수 있습니다!
+하지만 긴 컨텍스트를 매번 입력으로 사용하면 token 비용이 늘어날 수밖에 없습니다. 연구팀은 이를 해결하고자 RAG와 LC (Long Context) LLMs의 장단점을 적절히 합친 Self-Route라는 방법을 제안합니다. 논문은 [링크](https://www.arxiv.org/abs/2407.16833)에서 확인할 수 있습니다!
 
 ## Abstract
 
