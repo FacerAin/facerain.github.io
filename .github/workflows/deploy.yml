@@ -78,7 +78,6 @@ jobs:
             </body>
           </html>' > public/index.html
 
-      # 여기서 아티팩트 업로드(기본 이름: github-pages)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:
@@ -91,7 +90,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      # 위에서 업로드된 아티팩트(github-pages)를 배포
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v3
