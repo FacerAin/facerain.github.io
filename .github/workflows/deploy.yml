@@ -62,7 +62,7 @@ jobs:
       - name: Verify build output
         run: ls -alh ./public
 
-      - name: Create Redirect File
+      - name: Create Redirect Files
         run: |
           echo '<!DOCTYPE html>
           <html>
@@ -74,9 +74,14 @@ jobs:
               <title>Redirecting...</title>
             </head>
             <body>
-              <p>If you are not redirected, <a href="https://facerain.me">click here</a>.</p>
+              <p>If you are not redirected, <a id="redirect-link" href="#">click here</a>.</p>
+              <script>
+                document.getElementById("redirect-link").href = "https://facerain.me" + window.location.pathname + window.location.search;
+              </script>
             </body>
           </html>' > public/index.html
+      
+          cp public/index.html public/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
